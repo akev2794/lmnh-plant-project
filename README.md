@@ -4,7 +4,7 @@
 
 This project is for the Liverpool Museum of Natural History. They currently monitor their plants via a simple API but would like a better way of monitoring the plant health in real-time. The stakeholders would like a real-time interactive dashboard to view: both the plants current health in real-time, as well as viewing the long term data of their pants and employees. The stakeholders want a cost-effective cloud-based system.
 
-## Contents ##### UPDATE LINKS
+## Contents
 - [System Architecture](#system-architecture)
 - [Requirements](#requirements)
 - [Repository Structure](#repository-structure)
@@ -15,7 +15,11 @@ This project is for the Liverpool Museum of Natural History. They currently moni
 
 
 ### System Architecture 
-An image of the system architecture is available #########[here](system_architecture.png)###########. All cloud resources are AWS.
+An image of the system architecture is available visible below:
+
+![system architecture](lmnh-plant-project-architecture-diagram.drawio.png)
+
+All cloud resources are AWS.
 
 The trucks data is uploaded to an S3 bucket. Where it is then extracted, transformed and loaded into an AWS SQL Server RDS, this is triggered using an EventBridge schedule. An interactive streamlit dashboard is run as an ECS service using Fargate to visualise the data. A daily report is generated using a Lambda function and sent to the stakeholders using SES, also scheduled using EventBridge.
 
