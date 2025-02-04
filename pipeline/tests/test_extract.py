@@ -4,9 +4,10 @@ import os
 import pytest
 from unittest.mock import AsyncMock, patch
 import aiohttp
-import extract 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import extract 
 
 
 async def fetch_data(session: aiohttp.ClientSession, url: str):

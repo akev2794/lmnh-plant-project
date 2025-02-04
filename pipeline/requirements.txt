@@ -1,2 +1,5 @@
 aiohttp
 pandas
+pylint
+pytest
+pytest-asyncio
