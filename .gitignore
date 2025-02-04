@@ -1,1 +1,16 @@
+# Environment variables
 *.env
+
+# Virtual environment
+*venv
+
+# Terraform
+.terraform
+.terraform.lock.hcl
+*.tfstate*
+*.tfvars
+
+
+*.DS_Store
+*__pycache__*
+
