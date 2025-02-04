@@ -6,6 +6,7 @@ It will request the data from the api, and return a pandas dataframe.
 import asyncio
 from aiohttp import ClientSession
 import pandas as pd
+import json
 
 
 async def fetch(session: ClientSession, url):
@@ -24,5 +25,7 @@ def create_dataframe(data: list[dict]) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    print(asyncio.run(fetch_all()))
-    
+    data = asyncio.run(fetch_all())
+    print(data)
+    with open('plant_data.json', 'w', encoding="UTF-8") as file:
+        json.dump(data, file, indent=4)
