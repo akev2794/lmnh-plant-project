@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS beta.continent;
-DROP TABLE IF EXISTS beta.country;
-DROP TABLE IF EXISTS beta.city;
+DROP TABLE IF EXISTS beta.botanist;
+DROP TABLE IF EXISTS beta.plant_images;
 DROP TABLE IF EXISTS beta.town;
 DROP TABLE IF EXISTS beta.plant;
-DROP TABLE IF EXISTS beta.plant_images;
 DROP TABLE IF EXISTS beta.incident;
 DROP TABLE IF EXISTS beta.recording;
 DROP TABLE IF EXISTS beta.plant_botanist_assignment;
-DROP TABLE IF EXISTS beta.botanist;
+DROP TABLE IF EXISTS beta.city;
+DROP TABLE IF EXISTS beta.country;
+DROP TABLE IF EXISTS beta.continent;
 
 
 CREATE TABLE beta.botanist (
@@ -31,7 +31,7 @@ ALTER TABLE
     beta.plant ADD CONSTRAINT plant_id_primary PRIMARY KEY(plant_id);
 
 CREATE TABLE beta.recording(
-    recording_id INT NOT NULL,
+    recording_id INT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
     soil_moisture FLOAT(53) NOT NULL,
     temperature FLOAT(53) NOT NULL,
@@ -80,7 +80,7 @@ ALTER TABLE
     beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_id_primary PRIMARY KEY(assignment_id);
 
 CREATE TABLE beta.plant_images(
-    plant_image_id SMALLINT NOT NULL,
+    plant_image_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
     license SMALLINT NOT NULL
 );
@@ -88,7 +88,7 @@ ALTER TABLE
     beta.plant_images ADD CONSTRAINT plant_image_id_primary PRIMARY KEY(plant_image_id);
 
 CREATE TABLE beta.incident(
-    incident_id SMALLINT NOT NULL,
+    incident_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
     incident_type VARCHAR(11),
     incident_at TIMESTAMP NOT NULL
