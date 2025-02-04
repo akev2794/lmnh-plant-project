@@ -21,7 +21,6 @@ ALTER TABLE
 CREATE TABLE "recording"(
     "recording_id" INT NOT NULL,
     "plant_id" SMALLINT NOT NULL,
-    "botanist_id" SMALLINT NOT NULL,
     "soil_moisture" FLOAT(53) NOT NULL,
     "temperature" FLOAT(53) NOT NULL,
     "taken_at" TIMESTAMP NOT NULL
