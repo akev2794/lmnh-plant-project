@@ -41,17 +41,5 @@ jobs:
 
       - name: Run Pylint
         run: |
-          pylint $(git ls-files '*.py') > pylint-report.txt || true
-
-          score=$(tail -n 1 pylint-report.txt | grep -oP '\d+(\.\d+)?(?=/10)' || echo O)
-          echo "Pylint Score: $score"
-          if (( $(echo "$score < 9" | bc -1) )); then
-          echo "Pylint score is below 9. Failing the job."
-          exit 1
-          fi
-
-      - name: Upload Pylint Report
-        uses: actions/upload-artifact@v4
-        with: 
-          name: pylint-report
-          path: pylint-report-txt
+          # Run Pylint with the --fail-under flag set to 9 to fail if the score is below 9
+          pylint --fail-under 9 $(git ls-files '*.py')
