@@ -3,3 +3,4 @@ pandas
 pylint
 pytest
 pytest-asyncio
+SQLAlchemy
