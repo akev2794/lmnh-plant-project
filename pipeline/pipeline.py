@@ -13,9 +13,20 @@ from sqlalchemy import create_engine
 
 # Local imports
 from extract import create_dataframe
-# from transform ...
+# from transform import ...
 
+
+def load(df: pd.DataFrame):
+    engine = create_engine('mssql+pyodbc://user:password@server/database')
+    df.to_sql('Transaction', engine, if_exists='append', index=False)
 
 
 if __name__ == "__main__":
-    conn = create_engine
+    # Extract
+    plants_df = create_dataframe()
+
+    # Transform - EXAMPLE
+    # plants_df = transform(plants_df)
+
+    # Load
+    load(plants_df)
