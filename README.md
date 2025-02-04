@@ -47,31 +47,31 @@ The contents of each folder is broken down below, in order of appearance:
 
 Repository structure:
 
-.
-├── LICENSE
-├── README.md
-├── dashboard
-│   ├── README.md
-│   ├── dashboard.py
-│   ├── requirements.txt
-│   └── tests
-│       └── test_dashboard.py
-├── database
-│   ├── ERD.png
-│   ├── README.md
-│   └── requirements.txt
-├── pipeline
-│   ├── README.md
-│   ├── extract.py
-│   ├── pipeline.py
-│   ├── requirements.txt
-│   ├── tests
-│   │   ├── test_extract.py
-│   │   ├── test_pipeline.py
-│   │   └── test_transform.py
-│   └── transform.py
-├── requirements.txt
-├── terraform
-│   ├── README.md
-│   └── requirements.txt
+.\
+├── LICENSE\
+├── README.md\
+├── dashboard\
+│   ├── README.md\
+│   ├── dashboard.py\
+│   ├── requirements.txt\
+│   └── tests\
+│       └── test_dashboard.py\
+├── database\
+│   ├── ERD.png\
+│   ├── README.md\
+│   └── requirements.txt\
+├── pipeline\
+│   ├── README.md\
+│   ├── extract.py\
+│   ├── pipeline.py\
+│   ├── requirements.txt\
+│   ├── tests\
+│   │   ├── test_extract.py\
+│   │   ├── test_pipeline.py\
+│   │   └── test_transform.py\
+│   └── transform.py\
+├── requirements.txt\
+├── terraform\
+│   ├── README.md\
+│   └── requirements.txt\
 └── test_code.py
