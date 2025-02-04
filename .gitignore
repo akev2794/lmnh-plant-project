@@ -5,10 +5,10 @@
 *venv
 
 # Terraform
-terraform/*
-!terraform/README.md
-!terraform/requirements.txt
-!terraform/
+.terraform
+.terraform.lock.hcl
+*.tfstate*
+*.tfvars
 
 
 *.DS_Store
