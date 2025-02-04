@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS beta.continent;
 
 
 CREATE TABLE beta.botanist (
-    botanist_id SMALLINT NOT NULL,
+    botanist_id SMALLINT IDENTITY(1,1) NOT NULL,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     phone VARCHAR(30) NOT NULL,
@@ -41,14 +41,14 @@ ALTER TABLE
     beta.recording ADD CONSTRAINT recording_id_primary PRIMARY KEY(recording_id);
     
 CREATE TABLE beta.continent(
-    continent_id SMALLINT NOT NULL,
+    continent_id SMALLINT IDENTITY(1,1) NOT NULL,
     continent_name VARCHAR(30) NOT NULL
 );
 ALTER TABLE
     beta.continent ADD CONSTRAINT continent_id_primary PRIMARY KEY(continent_id);
 
 CREATE TABLE beta.country(
-    country_id SMALLINT NOT NULL,
+    country_id SMALLINT IDENTITY(1,1) NOT NULL,
     country_name VARCHAR(50) NOT NULL,
     continent_id SMALLINT NOT NULL
 );
@@ -56,7 +56,7 @@ ALTER TABLE
     beta.country ADD CONSTRAINT country_id_primary PRIMARY KEY(country_id);
 
 CREATE TABLE beta.city(
-    city_id SMALLINT NOT NULL,
+    city_id SMALLINT IDENTITY(1,1) NOT NULL,
     cityname VARCHAR(30) NOT NULL,
     country_id SMALLINT NOT NULL
 );
@@ -64,7 +64,7 @@ ALTER TABLE
     beta.city ADD CONSTRAINT city_id_primary PRIMARY KEY(city_id);
 
 CREATE TABLE beta.town(
-    town_id SMALLINT NOT NULL,
+    town_id SMALLINT IDENTITY(1,1) NOT NULL,
     town_name VARCHAR(30) NOT NULL,
     city_id SMALLINT NOT NULL
 );
@@ -72,7 +72,7 @@ ALTER TABLE
     beta.town ADD CONSTRAINT town_id_primary PRIMARY KEY(town_id);
 
 CREATE TABLE beta.plant_botanist_assignment(
-    assignment_id SMALLINT NOT NULL,
+    assignment_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
     botanist_id SMALLINT NOT NULL
 );
