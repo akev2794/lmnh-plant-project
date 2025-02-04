@@ -9,9 +9,9 @@ This project is for the Liverpool Museum of Natural History. They currently moni
 - [Requirements](#requirements)
 - [Repository Structure](#repository-structure)
     - [dashboard](dashboard)
-    - [database](database/README.md)
-    - [pipeline](pipeline/README.md)
-    - [terraform](terraform/README.md)
+    - [database](database)
+    - [pipeline](pipeline)
+    - [terraform](terraform)
 
 
 ### System Architecture 
