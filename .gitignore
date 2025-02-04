@@ -1,1 +1,16 @@
+# Environment variables
 *.env
+
+# Virtual environment
+*venv
+
+# Terraform
+terraform/*
+!terraform/README.md
+!terraform/requirements.txt
+!terraform/
+
+
+*.DS_Store
+*__pycache__*
+
