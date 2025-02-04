@@ -1,0 +1,1442 @@
+[
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:54:32 GMT",
+        "name": "Venus flytrap",
+        "origin_location": [
+            "33.95015",
+            "-118.03917",
+            "South Whittier",
+            "US",
+            "America/Los_Angeles"
+        ],
+        "plant_id": 1,
+        "recording_taken": "2025-02-04 15:58:28",
+        "soil_moisture": 92.6808819222441,
+        "temperature": 12.075645540042762
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:10:54 GMT",
+        "name": "Corpse flower",
+        "origin_location": [
+            "7.65649",
+            "4.92235",
+            "Efon-Alaaye",
+            "NG",
+            "Africa/Lagos"
+        ],
+        "plant_id": 2,
+        "recording_taken": "2025-02-04 15:58:29",
+        "soil_moisture": 94.1256116787989,
+        "temperature": 9.247321482607692
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:50:16 GMT",
+        "name": "Rafflesia arnoldii",
+        "origin_location": [
+            "-19.32556",
+            "-41.25528",
+            "Resplendor",
+            "BR",
+            "America/Sao_Paulo"
+        ],
+        "plant_id": 3,
+        "recording_taken": "2025-02-04 15:58:25",
+        "soil_moisture": 96.07194262439961,
+        "temperature": 10.08910475758114
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:16:25 GMT",
+        "name": "Black bat flower",
+        "origin_location": [
+            "13.70167",
+            "-89.10944",
+            "Ilopango",
+            "SV",
+            "America/El_Salvador"
+        ],
+        "plant_id": 4,
+        "recording_taken": "2025-02-04 15:58:25",
+        "soil_moisture": 90.33705721570577,
+        "temperature": 11.382516950183296
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:56:18 GMT",
+        "name": "Pitcher plant",
+        "origin_location": [
+            "22.88783",
+            "84.13864",
+            "Jashpurnagar",
+            "IN",
+            "Asia/Kolkata"
+        ],
+        "plant_id": 5,
+        "recording_taken": "2025-02-04 15:58:29",
+        "scientific_name": [
+            "Sarracenia catesbaei"
+        ],
+        "soil_moisture": 96.46942261305581,
+        "temperature": 11.267503680290236
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:35:35 GMT",
+        "name": "Wollemi pine",
+        "origin_location": [
+            "43.86682",
+            "-79.2663",
+            "Markham",
+            "CA",
+            "America/Toronto"
+        ],
+        "plant_id": 6,
+        "recording_taken": "2025-02-04 15:58:13",
+        "scientific_name": [
+            "Wollemia nobilis"
+        ],
+        "soil_moisture": 92.0684381223355,
+        "temperature": 11.021906857581873
+    },
+    {
+        "error": "plant not found",
+        "plant_id": 7
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:23:01 GMT",
+        "name": "Bird of paradise",
+        "origin_location": [
+            "5.27247",
+            "-3.59625",
+            "Bonoua",
+            "CI",
+            "Africa/Abidjan"
+        ],
+        "plant_id": 8,
+        "recording_taken": "2025-02-04 15:58:19",
+        "scientific_name": [
+            "Heliconia schiedeana 'Fire and Ice'"
+        ],
+        "soil_moisture": 90.73726749105367,
+        "temperature": 11.631503349364005
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:12:43 GMT",
+        "name": "Cactus",
+        "origin_location": [
+            "50.9803",
+            "11.32903",
+            "Weimar",
+            "DE",
+            "Europe/Berlin"
+        ],
+        "plant_id": 9,
+        "recording_taken": "2025-02-04 15:58:16",
+        "scientific_name": [
+            "Pereskia grandifolia"
+        ],
+        "soil_moisture": 93.88041423381642,
+        "temperature": 10.653747397250761
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:04:57 GMT",
+        "name": "Dragon tree,",
+        "origin_location": [
+            "43.50891",
+            "16.43915",
+            "Split",
+            "HR",
+            "Europe/Zagreb"
+        ],
+        "plant_id": 10,
+        "recording_taken": "2025-02-04 15:58:18",
+        "soil_moisture": 89.96953579749277,
+        "temperature": 13.996670351276816
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/1007_asclepias_curassavica/medium/51757177616_7ca0baaa87_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/1007_asclepias_curassavica/og/51757177616_7ca0baaa87_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/1007_asclepias_curassavica/regular/51757177616_7ca0baaa87_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/1007_asclepias_curassavica/small/51757177616_7ca0baaa87_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/1007_asclepias_curassavica/thumbnail/51757177616_7ca0baaa87_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:37:24 GMT",
+        "name": "Asclepias Curassavica",
+        "origin_location": [
+            "20.88953",
+            "-156.47432",
+            "Kahului",
+            "US",
+            "Pacific/Honolulu"
+        ],
+        "plant_id": 11,
+        "recording_taken": "2025-02-04 15:58:18",
+        "scientific_name": [
+            "Asclepias curassavica"
+        ],
+        "soil_moisture": 92.08406679588015,
+        "temperature": 9.537795743382718
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:13:51 GMT",
+        "name": "Brugmansia X Candida",
+        "origin_location": [
+            "32.5007",
+            "-94.74049",
+            "Longview",
+            "US",
+            "America/Chicago"
+        ],
+        "plant_id": 12,
+        "recording_taken": "2025-02-04 15:58:22",
+        "soil_moisture": 90.30332418172888,
+        "temperature": 12.92467101405304
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:36:47 GMT",
+        "name": "Canna \u2018Striata\u2019",
+        "origin_location": [
+            "49.68369",
+            "8.61839",
+            "Bensheim",
+            "DE",
+            "Europe/Berlin"
+        ],
+        "plant_id": 13,
+        "recording_taken": "2025-02-04 15:58:27",
+        "soil_moisture": 92.2082695572869,
+        "temperature": 9.640514052327859
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/2015_colocasia_esculenta/medium/24325097844_14719030a3_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2015_colocasia_esculenta/og/24325097844_14719030a3_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2015_colocasia_esculenta/regular/24325097844_14719030a3_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2015_colocasia_esculenta/small/24325097844_14719030a3_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2015_colocasia_esculenta/thumbnail/24325097844_14719030a3_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:17:54 GMT",
+        "name": "Colocasia Esculenta",
+        "origin_location": [
+            "29.65163",
+            "-82.32483",
+            "Gainesville",
+            "US",
+            "America/New_York"
+        ],
+        "plant_id": 14,
+        "recording_taken": "2025-02-04 15:58:21",
+        "scientific_name": [
+            "Colocasia esculenta"
+        ],
+        "soil_moisture": 94.3295193367827,
+        "temperature": 13.25605398004453
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:45:31 GMT",
+        "name": "Cuphea \u2018David Verity\u2019",
+        "origin_location": [
+            "36.08497",
+            "9.37082",
+            "Siliana",
+            "TN",
+            "Africa/Tunis"
+        ],
+        "plant_id": 15,
+        "recording_taken": "2025-02-04 15:58:26",
+        "soil_moisture": 92.18127386862746,
+        "temperature": 10.046230788331476
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 5,
+            "license_name": "Attribution-ShareAlike License",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/2868_euphorbia_cotinifolia/medium/51952243235_061102bd05_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2868_euphorbia_cotinifolia/og/51952243235_061102bd05_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2868_euphorbia_cotinifolia/regular/51952243235_061102bd05_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2868_euphorbia_cotinifolia/small/51952243235_061102bd05_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2868_euphorbia_cotinifolia/thumbnail/51952243235_061102bd05_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:50:40 GMT",
+        "name": "Euphorbia Cotinifolia",
+        "origin_location": [
+            "40.93121",
+            "-73.89875",
+            "Yonkers",
+            "US",
+            "America/New_York"
+        ],
+        "plant_id": 16,
+        "recording_taken": "2025-02-04 15:58:28",
+        "scientific_name": [
+            "Euphorbia cotinifolia"
+        ],
+        "soil_moisture": 89.04526221428571,
+        "temperature": 13.353314961873533
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:02:40 GMT",
+        "name": "Ipomoea Batatas",
+        "origin_location": [
+            "-7.51611",
+            "109.05389",
+            "Wangon",
+            "ID",
+            "Asia/Jakarta"
+        ],
+        "plant_id": 17,
+        "recording_taken": "2025-02-04 15:58:29",
+        "scientific_name": [
+            "Ipomoea batatas"
+        ],
+        "soil_moisture": 93.25922512512125,
+        "temperature": 9.869124018262802
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:29:39 GMT",
+        "name": "Manihot Esculenta \u2018Variegata\u2019",
+        "origin_location": [
+            "51.30001",
+            "13.10984",
+            "Oschatz",
+            "DE",
+            "Europe/Berlin"
+        ],
+        "plant_id": 18,
+        "recording_taken": "2025-02-04 15:58:23",
+        "soil_moisture": 94.83100932330098,
+        "temperature": 9.153692194110805
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:24:30 GMT",
+        "name": "Musa Basjoo",
+        "origin_location": [
+            "-21.44236",
+            "27.46153",
+            "Tonota",
+            "BW",
+            "Africa/Gaborone"
+        ],
+        "plant_id": 19,
+        "recording_taken": "2025-02-04 15:58:27",
+        "scientific_name": [
+            "Musa basjoo"
+        ],
+        "soil_moisture": 91.3911397027027,
+        "temperature": 13.906956629266501
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:49:34 GMT",
+        "name": "Salvia Splendens",
+        "origin_location": [
+            "41.15612",
+            "1.10687",
+            "Reus",
+            "ES",
+            "Europe/Madrid"
+        ],
+        "plant_id": 20,
+        "recording_taken": "2025-02-04 15:58:14",
+        "scientific_name": [
+            "Salvia splendens"
+        ],
+        "soil_moisture": 95.97190618572824,
+        "temperature": 8.705330953550494
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 5,
+            "license_name": "Attribution-ShareAlike License",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/855_anthurium_andraeanum/medium/49388458462_0ef650db39_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/855_anthurium_andraeanum/og/49388458462_0ef650db39_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/855_anthurium_andraeanum/regular/49388458462_0ef650db39_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/855_anthurium_andraeanum/small/49388458462_0ef650db39_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/855_anthurium_andraeanum/thumbnail/49388458462_0ef650db39_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:23:59 GMT",
+        "name": "Anthurium",
+        "origin_location": [
+            "-29.2975",
+            "-51.50361",
+            "Carlos Barbosa",
+            "BR",
+            "America/Sao_Paulo"
+        ],
+        "plant_id": 21,
+        "recording_taken": "2025-02-04 15:58:13",
+        "scientific_name": [
+            "Anthurium andraeanum"
+        ],
+        "soil_moisture": 94.63050545204179,
+        "temperature": 11.100168833273974
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:03:26 GMT",
+        "name": "Bird of Paradise",
+        "origin_location": [
+            "48.35693",
+            "10.98461",
+            "Friedberg",
+            "DE",
+            "Europe/Berlin"
+        ],
+        "plant_id": 22,
+        "recording_taken": "2025-02-04 15:58:14",
+        "scientific_name": [
+            "Heliconia schiedeana 'Fire and Ice'"
+        ],
+        "soil_moisture": 89.77686082163743,
+        "temperature": 9.613753933476895
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 45,
+            "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+            "medium_url": "https://perenual.com/storage/species_image/2045_cordyline_fruticosa/medium/2560px-Cordyline_fruticosa_Rubra_1.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2045_cordyline_fruticosa/og/2560px-Cordyline_fruticosa_Rubra_1.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2045_cordyline_fruticosa/regular/2560px-Cordyline_fruticosa_Rubra_1.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2045_cordyline_fruticosa/small/2560px-Cordyline_fruticosa_Rubra_1.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2045_cordyline_fruticosa/thumbnail/2560px-Cordyline_fruticosa_Rubra_1.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:56:47 GMT",
+        "name": "Cordyline Fruticosa",
+        "origin_location": [
+            "52.53048",
+            "13.29371",
+            "Charlottenburg-Nord",
+            "DE",
+            "Europe/Berlin"
+        ],
+        "plant_id": 23,
+        "recording_taken": "2025-02-04 15:58:15",
+        "scientific_name": [
+            "Cordyline fruticosa"
+        ],
+        "soil_moisture": 96.46014043570058,
+        "temperature": 11.513275253664629
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/288_ficus_carica/medium/52377169610_b7a247a378_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/288_ficus_carica/og/52377169610_b7a247a378_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/288_ficus_carica/regular/52377169610_b7a247a378_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/288_ficus_carica/small/52377169610_b7a247a378_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/288_ficus_carica/thumbnail/52377169610_b7a247a378_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:44:00 GMT",
+        "name": "Ficus",
+        "origin_location": [
+            "43.82634",
+            "144.09638",
+            "Motomachi",
+            "JP",
+            "Asia/Tokyo"
+        ],
+        "plant_id": 24,
+        "recording_taken": "2025-02-04 15:58:16",
+        "scientific_name": [
+            "Ficus carica"
+        ],
+        "soil_moisture": 95.56528308656716,
+        "temperature": 13.117985784873413
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:58:41 GMT",
+        "name": "Palm Trees",
+        "origin_location": [
+            "11.8659",
+            "34.3869",
+            "Ar Ruseris",
+            "SD",
+            "Africa/Khartoum"
+        ],
+        "plant_id": 25,
+        "recording_taken": "2025-02-04 15:58:20",
+        "soil_moisture": 93.23325330348727,
+        "temperature": 11.643257736778793
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/2468_dieffenbachia_seguine/medium/24449059743_2aee995991_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2468_dieffenbachia_seguine/og/24449059743_2aee995991_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2468_dieffenbachia_seguine/regular/24449059743_2aee995991_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2468_dieffenbachia_seguine/small/24449059743_2aee995991_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2468_dieffenbachia_seguine/thumbnail/24449059743_2aee995991_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:23:18 GMT",
+        "name": "Dieffenbachia Seguine",
+        "origin_location": [
+            "36.06386",
+            "4.62744",
+            "El Achir",
+            "DZ",
+            "Africa/Algiers"
+        ],
+        "plant_id": 26,
+        "recording_taken": "2025-02-04 15:58:19",
+        "scientific_name": [
+            "Dieffenbachia seguine"
+        ],
+        "soil_moisture": 94.75472555289788,
+        "temperature": 14.203626216691381
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:58:20 GMT",
+        "name": "Spathiphyllum",
+        "origin_location": [
+            "51.67822",
+            "33.9162",
+            "Hlukhiv",
+            "UA",
+            "Europe/Kiev"
+        ],
+        "plant_id": 27,
+        "recording_taken": "2025-02-04 15:58:25",
+        "scientific_name": [
+            "Spathiphyllum (group)"
+        ],
+        "soil_moisture": 96.56319874451859,
+        "temperature": 10.816902637244562
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/1999_codiaeum_variegatum/medium/29041866364_2c535b2297_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/1999_codiaeum_variegatum/og/29041866364_2c535b2297_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/1999_codiaeum_variegatum/regular/29041866364_2c535b2297_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/1999_codiaeum_variegatum/small/29041866364_2c535b2297_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/1999_codiaeum_variegatum/thumbnail/29041866364_2c535b2297_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:37:02 GMT",
+        "name": "Croton",
+        "origin_location": [
+            "43.91452",
+            "-69.96533",
+            "Brunswick",
+            "US",
+            "America/New_York"
+        ],
+        "plant_id": 28,
+        "recording_taken": "2025-02-04 15:58:20",
+        "scientific_name": [
+            "Codiaeum variegatum"
+        ],
+        "soil_moisture": 95.12620216483516,
+        "temperature": 12.454297848361822
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 5,
+            "license_name": "Attribution-ShareAlike License",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/728_aloe_vera/medium/52619084582_6ebcfe6a74_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/728_aloe_vera/og/52619084582_6ebcfe6a74_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/728_aloe_vera/regular/52619084582_6ebcfe6a74_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/728_aloe_vera/small/52619084582_6ebcfe6a74_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/728_aloe_vera/thumbnail/52619084582_6ebcfe6a74_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:11:24 GMT",
+        "name": "Aloe Vera",
+        "origin_location": [
+            "34.75856",
+            "136.13108",
+            "Ueno-ebisumachi",
+            "JP",
+            "Asia/Tokyo"
+        ],
+        "plant_id": 29,
+        "recording_taken": "2025-02-04 15:58:21",
+        "scientific_name": [
+            "Aloe vera"
+        ],
+        "soil_moisture": 90.62883352946679,
+        "temperature": 10.942280591776921
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 5,
+            "license_name": "Attribution-ShareAlike License",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/2961_ficus_elastica/medium/533092219_8da73ba0d2_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2961_ficus_elastica/og/533092219_8da73ba0d2_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2961_ficus_elastica/regular/533092219_8da73ba0d2_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2961_ficus_elastica/small/533092219_8da73ba0d2_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2961_ficus_elastica/thumbnail/533092219_8da73ba0d2_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:55:19 GMT",
+        "name": "Ficus Elastica",
+        "origin_location": [
+            "30.75545",
+            "20.22625",
+            "Ajdabiya",
+            "LY",
+            "Africa/Tripoli"
+        ],
+        "plant_id": 30,
+        "recording_taken": "2025-02-04 15:58:22",
+        "scientific_name": [
+            "Ficus elastica"
+        ],
+        "soil_moisture": 93.20087528176795,
+        "temperature": 14.569906509914127
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:05:43 GMT",
+        "name": "Sansevieria Trifasciata",
+        "origin_location": [
+            "23.29549",
+            "113.82465",
+            "Licheng",
+            "CN",
+            "Asia/Shanghai"
+        ],
+        "plant_id": 31,
+        "recording_taken": "2025-02-04 15:58:25",
+        "scientific_name": [
+            "Sansevieria trifasciata"
+        ],
+        "soil_moisture": 90.03565201442308,
+        "temperature": 13.426393946971311
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:29:54 GMT",
+        "name": "Philodendron Hederaceum",
+        "origin_location": [
+            "52.47774",
+            "10.5511",
+            "Gifhorn",
+            "DE",
+            "Europe/Berlin"
+        ],
+        "plant_id": 32,
+        "recording_taken": "2025-02-04 15:58:25",
+        "scientific_name": [
+            "Philodendron hederaceum"
+        ],
+        "soil_moisture": 94.71996562723658,
+        "temperature": 10.656468305624092
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:05:58 GMT",
+        "name": "Schefflera Arboricola",
+        "origin_location": [
+            "28.92694",
+            "78.23456",
+            "Bachhraon",
+            "IN",
+            "Asia/Kolkata"
+        ],
+        "plant_id": 33,
+        "recording_taken": "2025-02-04 15:58:15",
+        "scientific_name": [
+            "Schefflera arboricola"
+        ],
+        "soil_moisture": 93.45915944174757,
+        "temperature": 13.636407181528233
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/625_aglaonema_commutatum/medium/24798632751_3a039ecbc6_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/625_aglaonema_commutatum/og/24798632751_3a039ecbc6_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/625_aglaonema_commutatum/regular/24798632751_3a039ecbc6_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/625_aglaonema_commutatum/small/24798632751_3a039ecbc6_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/625_aglaonema_commutatum/thumbnail/24798632751_3a039ecbc6_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:44:15 GMT",
+        "name": "Aglaonema Commutatum",
+        "origin_location": [
+            "41.15612",
+            "1.10687",
+            "Reus",
+            "ES",
+            "Europe/Madrid"
+        ],
+        "plant_id": 34,
+        "recording_taken": "2025-02-04 15:58:13",
+        "scientific_name": [
+            "Aglaonema commutatum"
+        ],
+        "soil_moisture": 92.1651437465887,
+        "temperature": 13.484638688737443
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:32:46 GMT",
+        "name": "Monstera Deliciosa",
+        "origin_location": [
+            "-32.45242",
+            "-71.23106",
+            "La Ligua",
+            "CL",
+            "America/Santiago"
+        ],
+        "plant_id": 35,
+        "recording_taken": "2025-02-04 15:58:13",
+        "scientific_name": [
+            "Monstera deliciosa"
+        ],
+        "soil_moisture": 91.38415503060217,
+        "temperature": 13.040102945758669
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:09:55 GMT",
+        "name": "Tacca Integrifolia",
+        "origin_location": [
+            "32.54044",
+            "-82.90375",
+            "Dublin",
+            "US",
+            "America/New_York"
+        ],
+        "plant_id": 36,
+        "recording_taken": "2025-02-04 15:58:15",
+        "scientific_name": [
+            "Tacca integrifolia"
+        ],
+        "soil_moisture": 93.89086133082706,
+        "temperature": 12.409093933196303
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:23:43 GMT",
+        "name": "Psychopsis Papilio",
+        "origin_location": [
+            "30.21121",
+            "74.4818",
+            "Malaut",
+            "IN",
+            "Asia/Kolkata"
+        ],
+        "plant_id": 37,
+        "recording_taken": "2025-02-04 15:58:18",
+        "soil_moisture": 94.59488849619048,
+        "temperature": 11.143104292900631
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:46:06 GMT",
+        "name": "Saintpaulia Ionantha",
+        "origin_location": [
+            "-6.8",
+            "39.25",
+            "Magomeni",
+            "TZ",
+            "Africa/Dar_es_Salaam"
+        ],
+        "plant_id": 38,
+        "recording_taken": "2025-02-04 15:58:19",
+        "scientific_name": [
+            "Saintpaulia ionantha"
+        ],
+        "soil_moisture": 92.6201409711628,
+        "temperature": 11.130885310228177
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:18:23 GMT",
+        "name": "Gaillardia",
+        "origin_location": [
+            "36.24624",
+            "139.07204",
+            "Fujioka",
+            "JP",
+            "Asia/Tokyo"
+        ],
+        "plant_id": 39,
+        "recording_taken": "2025-02-04 15:58:20",
+        "scientific_name": [
+            "Gaillardia aestivalis"
+        ],
+        "soil_moisture": 94.03271979502487,
+        "temperature": 13.474285134302226
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:05:38 GMT",
+        "name": "Amaryllis",
+        "origin_location": [
+            "44.92801",
+            "4.8951",
+            "Valence",
+            "FR",
+            "Europe/Paris"
+        ],
+        "plant_id": 40,
+        "recording_taken": "2025-02-04 15:58:25",
+        "scientific_name": [
+            "Hippeastrum (group)"
+        ],
+        "soil_moisture": 93.74540125970425,
+        "temperature": 9.189535658480482
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/1457_caladium_bicolor/medium/25575875658_d782fb76f1_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/1457_caladium_bicolor/og/25575875658_d782fb76f1_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/1457_caladium_bicolor/regular/25575875658_d782fb76f1_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/1457_caladium_bicolor/small/25575875658_d782fb76f1_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/1457_caladium_bicolor/thumbnail/25575875658_d782fb76f1_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:45:13 GMT",
+        "name": "Caladium Bicolor",
+        "origin_location": [
+            "22.4711",
+            "88.1453",
+            "Pujali",
+            "IN",
+            "Asia/Kolkata"
+        ],
+        "plant_id": 41,
+        "recording_taken": "2025-02-04 15:58:23",
+        "scientific_name": [
+            "Caladium bicolor"
+        ],
+        "soil_moisture": 92.54600534048508,
+        "temperature": 11.868481787956467
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 45,
+            "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+            "medium_url": "https://perenual.com/storage/species_image/1847_chlorophytum_comosum_vittatum/medium/2560px-Chlorophytum_comosum_27Vittatum27_kz02.jpg",
+            "original_url": "https://perenual.com/storage/species_image/1847_chlorophytum_comosum_vittatum/og/2560px-Chlorophytum_comosum_27Vittatum27_kz02.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/1847_chlorophytum_comosum_vittatum/regular/2560px-Chlorophytum_comosum_27Vittatum27_kz02.jpg",
+            "small_url": "https://perenual.com/storage/species_image/1847_chlorophytum_comosum_vittatum/small/2560px-Chlorophytum_comosum_27Vittatum27_kz02.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/1847_chlorophytum_comosum_vittatum/thumbnail/2560px-Chlorophytum_comosum_27Vittatum27_kz02.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:49:43 GMT",
+        "name": "Chlorophytum Comosum",
+        "origin_location": [
+            "41.57439",
+            "24.71204",
+            "Smolyan",
+            "BG",
+            "Europe/Sofia"
+        ],
+        "plant_id": 42,
+        "recording_taken": "2025-02-04 15:58:31",
+        "scientific_name": [
+            "Chlorophytum comosum 'Vittatum'"
+        ],
+        "soil_moisture": 96.01540957722008,
+        "temperature": 21.455923858499457
+    },
+    {
+        "error": "plant on loan to another museum",
+        "plant_id": 43
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/917_araucaria_heterophylla/medium/49833684212_2aff9d7b3c_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/917_araucaria_heterophylla/og/49833684212_2aff9d7b3c_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/917_araucaria_heterophylla/regular/49833684212_2aff9d7b3c_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/917_araucaria_heterophylla/small/49833684212_2aff9d7b3c_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/917_araucaria_heterophylla/thumbnail/49833684212_2aff9d7b3c_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:32:40 GMT",
+        "name": "Araucaria Heterophylla",
+        "origin_location": [
+            "20.22816",
+            "-103.5687",
+            "Zacoalco de Torres",
+            "MX",
+            "America/Mexico_City"
+        ],
+        "plant_id": 44,
+        "recording_taken": "2025-02-04 15:58:24",
+        "scientific_name": [
+            "Araucaria heterophylla"
+        ],
+        "soil_moisture": 91.6643993250715,
+        "temperature": 9.65583822521091
+    },
+    {
+        "botanist": {
+            "email": "gertrude.jekyll@lnhm.co.uk",
+            "name": "Gertrude Jekyll",
+            "phone": "001-481-273-3691x127"
+        },
+        "images": null,
+        "last_watered": "Tue, 04 Feb 2025 14:04:23 GMT",
+        "name": "Begonia",
+        "origin_location": [
+            "33.95015",
+            "-118.03917",
+            "South Whittier",
+            "US",
+            "America/Los_Angeles"
+        ],
+        "plant_id": 45,
+        "recording_taken": "2025-02-04 15:58:26",
+        "scientific_name": [
+            "Begonia 'Art Hodes'"
+        ],
+        "soil_moisture": 93.3816963549323,
+        "temperature": 9.114366917253992
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:12:39 GMT",
+        "name": "Medinilla Magnifica",
+        "origin_location": [
+            "-13.7804",
+            "34.4587",
+            "Salima",
+            "MW",
+            "Africa/Blantyre"
+        ],
+        "plant_id": 46,
+        "recording_taken": "2025-02-04 15:58:28",
+        "scientific_name": [
+            "Medinilla magnifica"
+        ],
+        "soil_moisture": 94.15308952209945,
+        "temperature": 13.409499647873838
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/1477_calliandra_haematocephala/medium/52063600268_834ebc0538_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/1477_calliandra_haematocephala/og/52063600268_834ebc0538_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/1477_calliandra_haematocephala/regular/52063600268_834ebc0538_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/1477_calliandra_haematocephala/small/52063600268_834ebc0538_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/1477_calliandra_haematocephala/thumbnail/52063600268_834ebc0538_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 13:30:18 GMT",
+        "name": "Calliandra Haematocephala",
+        "origin_location": [
+            "37.49223",
+            "15.07041",
+            "Catania",
+            "IT",
+            "Europe/Rome"
+        ],
+        "plant_id": 47,
+        "recording_taken": "2025-02-04 15:58:12",
+        "scientific_name": [
+            "Calliandra haematocephala"
+        ],
+        "soil_moisture": 87.32212068714286,
+        "temperature": 13.39128867666319
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 451,
+            "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "medium_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "original_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "regular_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "small_url": "https://perenual.com/storage/image/upgrade_access.jpg",
+            "thumbnail": "https://perenual.com/storage/image/upgrade_access.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:31:09 GMT",
+        "name": "Zamioculcas Zamiifolia",
+        "origin_location": [
+            "14.14989",
+            "121.3152",
+            "Calauan",
+            "PH",
+            "Asia/Manila"
+        ],
+        "plant_id": 48,
+        "recording_taken": "2025-02-04 15:58:15",
+        "scientific_name": [
+            "Zamioculcas zamiifolia"
+        ],
+        "soil_moisture": 94.89586183984375,
+        "temperature": 14.938011919479552
+    },
+    {
+        "botanist": {
+            "email": "eliza.andrews@lnhm.co.uk",
+            "name": "Eliza Andrews",
+            "phone": "(846)669-6651x75948"
+        },
+        "images": {
+            "license": 4,
+            "license_name": "Attribution License",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "medium_url": "https://perenual.com/storage/species_image/2193_crassula_ovata/medium/33253726791_980c738a1e_b.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2193_crassula_ovata/og/33253726791_980c738a1e_b.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2193_crassula_ovata/regular/33253726791_980c738a1e_b.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2193_crassula_ovata/small/33253726791_980c738a1e_b.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2193_crassula_ovata/thumbnail/33253726791_980c738a1e_b.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:02:15 GMT",
+        "name": "Crassula Ovata",
+        "origin_location": [
+            "17.94979",
+            "-94.91386",
+            "Acayucan",
+            "MX",
+            "America/Mexico_City"
+        ],
+        "plant_id": 49,
+        "recording_taken": "2025-02-04 15:58:13",
+        "scientific_name": [
+            "Crassula ovata"
+        ],
+        "soil_moisture": 93.23753480174928,
+        "temperature": 9.49711549097264
+    },
+    {
+        "botanist": {
+            "email": "carl.linnaeus@lnhm.co.uk",
+            "name": "Carl Linnaeus",
+            "phone": "(146)994-1635x35992"
+        },
+        "images": {
+            "license": 45,
+            "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+            "medium_url": "https://perenual.com/storage/species_image/2773_epipremnum_aureum/medium/2560px-Epipremnum_aureum_31082012.jpg",
+            "original_url": "https://perenual.com/storage/species_image/2773_epipremnum_aureum/og/2560px-Epipremnum_aureum_31082012.jpg",
+            "regular_url": "https://perenual.com/storage/species_image/2773_epipremnum_aureum/regular/2560px-Epipremnum_aureum_31082012.jpg",
+            "small_url": "https://perenual.com/storage/species_image/2773_epipremnum_aureum/small/2560px-Epipremnum_aureum_31082012.jpg",
+            "thumbnail": "https://perenual.com/storage/species_image/2773_epipremnum_aureum/thumbnail/2560px-Epipremnum_aureum_31082012.jpg"
+        },
+        "last_watered": "Tue, 04 Feb 2025 14:03:04 GMT",
+        "name": "Epipremnum Aureum",
+        "origin_location": [
+            "-19.32556",
+            "-41.25528",
+            "Resplendor",
+            "BR",
+            "America/Sao_Paulo"
+        ],
+        "plant_id": 50,
+        "recording_taken": "2025-02-04 15:58:15",
+        "scientific_name": [
+            "Epipremnum aureum"
+        ],
+        "soil_moisture": 93.30901596902227,
+        "temperature": 13.256206464835344
+    }
+]
