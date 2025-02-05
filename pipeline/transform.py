@@ -26,22 +26,6 @@ def last_watered_safe_parse_datetime(date_str: str) -> datetime:
         return pd.NA
 
 
-def make_engine() -> Engine:
-    """Creates sqlalchemy engine."""
-    connection_string = f"""
-        DRIVER={{ODBC Driver 18 for SQL Server}};
-        SERVER={ENV["DB_HOST"]},{ENV["DB_PORT"]};
-        DATABASE={ENV["DB_NAME"]};
-        UID={ENV["DB_USER"]};
-        PWD={ENV["DB_PASSWORD"]};
-        TrustServerCertificate=Yes"""
-
-    connection_url = URL.create(
-        "mssql+pyodbc", query={"odbc_connect": connection_string}
-    )
-    return create_engine(connection_url)
-
-
 def get_plant_ids(engine: Engine) -> dict:
     """Returns available plant ids."""
     query = """SELECT plant_id
