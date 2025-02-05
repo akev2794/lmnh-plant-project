@@ -37,8 +37,8 @@ CREATE TABLE beta.recording(
     plant_id SMALLINT NOT NULL,
     soil_moisture FLOAT(53) NOT NULL,
     temperature FLOAT(53) NOT NULL,
-    last_watered TIMESTAMP,
-    taken_at TIMESTAMP NOT NULL
+    last_watered DATETIME,
+    taken_at DATETIME
 );
 ALTER TABLE
     beta.recording ADD CONSTRAINT recording_id_primary PRIMARY KEY(recording_id);
