@@ -4,7 +4,6 @@ DROP TABLE IF EXISTS beta.town;
 DROP TABLE IF EXISTS beta.plant;
 DROP TABLE IF EXISTS beta.incident;
 DROP TABLE IF EXISTS beta.recording;
-DROP TABLE IF EXISTS beta.plant_botanist_assignment;
 DROP TABLE IF EXISTS beta.city;
 DROP TABLE IF EXISTS beta.country;
 DROP TABLE IF EXISTS beta.continent;
@@ -57,7 +56,7 @@ ALTER TABLE
 
 CREATE TABLE beta.city(
     city_id SMALLINT IDENTITY(1,1) NOT NULL,
-    cityname VARCHAR(30) NOT NULL,
+    city_name VARCHAR(30) NOT NULL,
     country_id SMALLINT NOT NULL
 );
 ALTER TABLE
@@ -71,17 +70,10 @@ CREATE TABLE beta.town(
 ALTER TABLE
     beta.town ADD CONSTRAINT town_id_primary PRIMARY KEY(town_id);
 
-CREATE TABLE beta.plant_botanist_assignment(
-    assignment_id SMALLINT IDENTITY(1,1) NOT NULL,
-    plant_id SMALLINT NOT NULL,
-    botanist_id SMALLINT NOT NULL
-);
-ALTER TABLE
-    beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_id_primary PRIMARY KEY(assignment_id);
-
 CREATE TABLE beta.plant_images(
     plant_image_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
     license SMALLINT NOT NULL
 );
 ALTER TABLE
@@ -110,8 +102,7 @@ ALTER TABLE
 ALTER TABLE
     beta.plant_images ADD CONSTRAINT plant_images_plant_id_foreign FOREIGN KEY(plant_id) REFERENCES beta.plant(plant_id);
 ALTER TABLE
-    beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_botanist_id_foreign FOREIGN KEY(botanist_id) REFERENCES beta.botanist(botanist_id);
-ALTER TABLE
     beta.town ADD CONSTRAINT town_city_id_foreign FOREIGN KEY(city_id) REFERENCES beta.city(city_id);
-ALTER TABLE
-    beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_plant_id_foreign FOREIGN KEY(plant_id) REFERENCES beta.plant(plant_id);
+
+
+
