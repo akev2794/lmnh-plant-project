@@ -4,6 +4,9 @@ The file swill pull data for the API, clean it
 and upload it to the AWS relational database.
 """
 
+# Native Imports
+from time import sleep
+
 # Third-party imports
 import pandas as pd
 from sqlalchemy import Engine
@@ -31,6 +34,9 @@ def load_to_recording(df: pd.DataFrame, alchemy_engine: Engine):
 if __name__ == "__main__":
     load_dotenv()
     engine = make_engine()
-    plants_df = create_dataframe()
-    plants_df = process_plant_data(plants_df)
-    load_to_recording(plants_df, engine)
+    for _ in range(10):
+        plants_df = create_dataframe()
+        plants_df = process_plant_data(plants_df)
+        load_to_recording(plants_df, engine)
+        print("loaded")
+        sleep(60)
