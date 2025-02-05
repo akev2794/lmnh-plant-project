@@ -25,4 +25,4 @@ def process_plant_data(df: pd.DataFrame) -> pd.DataFrame:
     timestamp = datetime.now()
     df["taken_at"] = timestamp
 
-    return df[["plant_id", "soil_moisture", "temperature", "taken_at", "last_watered"]]
+    return df
