@@ -13,7 +13,7 @@ def safe_parse_datetime(date_str):
         return datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S GMT")
     except ValueError:
         return pd.NA 
-    
+
 
 def process_plant_data(df: pd.DataFrame) -> pd.DataFrame:
     """Processes data, returning DataFrame with plant_id, soil_moisture, temperature, taken_at."""
