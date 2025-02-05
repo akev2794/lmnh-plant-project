@@ -11,21 +11,22 @@ from pandas.api.types import is_dtype_equal
 
 
 # Local modules
-from transform import safe_parse_datetime, process_plant_data
+from transform import last_watered_safe_parse_datetime, process_plant_data
 
-# SAFE_PARSE_DATETIME
+# last_watered_safe_parse_datetime
 
 @pytest.mark.parametrize('date_string', [
             (''), (1), ([""]),
-            ("Wed, 50 Feb 2025 13:54:32 GMT")
+            ("Wed, 50 Feb 2025 13:54:32 GMT"),
+            ("Wed, 05 Feb 3000 13:54:32 GMT")
             ])
-def test_safe_parse_datetime_invalid(date_string):
-    assert safe_parse_datetime(date_string) is pd.NA
+def test_last_watered_safe_parse_datetime_invalid(date_string):
+    assert last_watered_safe_parse_datetime(date_string) is pd.NA
 
 
-def test_safe_parse_datetime_valid():
+def test_last_watered_safe_parse_datetime_valid():
     date_string = "Wed, 05 Feb 2025 13:54:32 GMT"
-    assert safe_parse_datetime(date_string) == datetime.strptime(date_string, "%a, %d %b %Y %H:%M:%S GMT")
+    assert last_watered_safe_parse_datetime(date_string) == datetime.strptime(date_string, "%a, %d %b %Y %H:%M:%S GMT")
 
 
 
@@ -66,5 +67,5 @@ def test_process_plant_datatypes(DF_INPUT):
     assert is_dtype_equal(df["plant_id"].dtype, "int64")
     assert is_dtype_equal(df["soil_moisture"].dtype, "float64")
     assert is_dtype_equal(df["temperature"].dtype, "float64")
-    assert is_dtype_equal(df["taken_at"].dtype, "datetime64")
-    assert is_dtype_equal(df["last_watered"].dtype, "datetime64")
+    assert is_dtype_equal(df["taken_at"].dtype, "datetime64[s]")
+    assert is_dtype_equal(df["last_watered"].dtype, "datetime64[s]")
