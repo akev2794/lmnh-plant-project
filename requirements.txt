@@ -1,2 +1,5 @@
 pylint
 pytest
+aiohttp
+pandas
+pytest-asyncio
