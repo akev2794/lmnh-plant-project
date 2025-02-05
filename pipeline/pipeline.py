@@ -36,9 +36,20 @@ def make_engine():
     return create_engine(connection_url)
 
 
-def load(table_name: str, df: pd.DataFrame, alchemy_engine: Engine):
+def load_to_recording(df: pd.DataFrame, alchemy_engine: Engine):
     """Upload the data to the databse."""
-    df.to_sql(table_name, alchemy_engine, schema='beta', if_exists='append', index=False)
+    for col in list(df.columns):
+        if col not in ['plant_id', 'soil_moisture', 'temperature', 'taken_at']:
+            raise ValueError("Invalid column names.")
+    df.to_sql('recording', alchemy_engine, schema='beta', if_exists='append', index=False)
+
+
+def load_to_incident(df: pd.DataFrame, alchemy_engine: Engine):
+    """Upload the data to the databse."""
+    for col in list(df.columns):
+        if col not in ['plant_id', 'incident_type', 'incident_at']:
+            raise ValueError("Invalid column names.")
+    df.to_sql('recording', alchemy_engine, schema='beta', if_exists='append', index=False)
 
 
 def transform_data():
@@ -61,5 +72,4 @@ if __name__ == "__main__":
 
 
     # Load
-    TABLE = 'continent'
-    # load(table, plants_df, engine)
+    load_to_recording(plant_df, engine)
