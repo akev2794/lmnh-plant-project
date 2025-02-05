@@ -1,5 +1,19 @@
 import pandas as pd
 import json
+import pyodbc
+from dotenv import environ as ENV
+
+
+def get_connection():
+    """Makes and returns a pymysql connection to the MySQL RDS database."""
+    connection = pymysql.connect(host=ENV['DB_HOST'],
+                                 user=ENV['DB_USER'],
+                                 password=ENV['DB_PASSWORD'],
+                                 database=ENV['DB_NAME'],
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    return connection
+
 
 with open("plant_data.json", "r") as file:
     data = json.load(file)
@@ -27,27 +41,23 @@ for plant in data:
         town = plant['origin_location'][2]
         country = plant['origin_location'][3]
         continent = plant['origin_location'][4]
-        city = plant['origin_location'][4].split("/")[1]
         scientific_name = ', '.join(
             plant['scientific_name']) if 'scientific_name' in plant and plant['scientific_name'] else None
         soil_moisture = plant['soil_moisture']
         temperature = plant['temperature']
+        time = plant['recording_taken']
 
         record = {
-            "email": email,
-            "first_name": first_name,
-            "last_name": last_name,
-            "phone": phone,
             "license": license,
             "last_watered": last_watered,
             "plant_name": plant_name,
             "town": town,
             "country": country,
             "continent": continent,
-            "city": city,
             "plant_scientific_name": scientific_name,
             "soil_moisture": soil_moisture,
-            "temperature": temperature
+            "temperature": temperature,
+            "time": time
         }
 
         records.append(record)
