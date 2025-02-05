@@ -51,8 +51,8 @@ def process_plant_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df[df["plant_id"].isin(current_plant_ids)]
     df["last_watered"] = pd.to_datetime(df["last_watered"].astype(str).apply(safe_parse_datetime))
     df = df.dropna()
-    df["soil_moisture"] = df["soil_moisture"].round(2)
-    df["temperature"] = df["soil_moisture"].round(2)
+    df["soil_moisture"] = df["soil_moisture"].round(2).astype("float64")
+    df["temperature"] = df["temperature"].round(2).astype("float64")
     timestamp = datetime.now()
     df["taken_at"] = timestamp
 
