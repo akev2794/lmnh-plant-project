@@ -1,11 +1,9 @@
 DROP TABLE IF EXISTS beta.botanist;
 DROP TABLE IF EXISTS beta.plant_images;
-DROP TABLE IF EXISTS beta.town;
+DROP TABLE IF EXISTS beta.region;
 DROP TABLE IF EXISTS beta.plant;
 DROP TABLE IF EXISTS beta.incident;
 DROP TABLE IF EXISTS beta.recording;
-DROP TABLE IF EXISTS beta.plant_botanist_assignment;
-DROP TABLE IF EXISTS beta.city;
 DROP TABLE IF EXISTS beta.country;
 DROP TABLE IF EXISTS beta.continent;
 
@@ -24,7 +22,7 @@ CREATE TABLE beta.plant(
     plant_id SMALLINT NOT NULL,
     plant_name VARCHAR(255) NOT NULL,
     last_watered TIMESTAMP,
-    town_id SMALLINT NOT NULL,
+    region_id SMALLINT NOT NULL,
     plant_scientific_name VARCHAR(75)
 );
 ALTER TABLE
@@ -55,34 +53,19 @@ CREATE TABLE beta.country(
 ALTER TABLE
     beta.country ADD CONSTRAINT country_id_primary PRIMARY KEY(country_id);
 
-CREATE TABLE beta.city(
-    city_id SMALLINT IDENTITY(1,1) NOT NULL,
-    cityname VARCHAR(30) NOT NULL,
+CREATE TABLE beta.region(
+    region_id SMALLINT IDENTITY(1,1) NOT NULL,
+    region_name VARCHAR(30) NOT NULL,
     country_id SMALLINT NOT NULL
 );
 ALTER TABLE
-    beta.city ADD CONSTRAINT city_id_primary PRIMARY KEY(city_id);
-
-CREATE TABLE beta.town(
-    town_id SMALLINT IDENTITY(1,1) NOT NULL,
-    town_name VARCHAR(30) NOT NULL,
-    city_id SMALLINT NOT NULL
-);
-ALTER TABLE
-    beta.town ADD CONSTRAINT town_id_primary PRIMARY KEY(town_id);
-
-CREATE TABLE beta.plant_botanist_assignment(
-    assignment_id SMALLINT IDENTITY(1,1) NOT NULL,
-    plant_id SMALLINT NOT NULL,
-    botanist_id SMALLINT NOT NULL
-);
-ALTER TABLE
-    beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_id_primary PRIMARY KEY(assignment_id);
+    beta.region ADD CONSTRAINT region_id_primary PRIMARY KEY(region_id);
 
 CREATE TABLE beta.plant_images(
     plant_image_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
-    license SMALLINT NOT NULL
+    image_url VARCHAR(255) NOT NULL,
+    license SMALLINT
 );
 ALTER TABLE
     beta.plant_images ADD CONSTRAINT plant_image_id_primary PRIMARY KEY(plant_image_id);
@@ -102,16 +85,13 @@ ALTER TABLE
 ALTER TABLE
     beta.country ADD CONSTRAINT country_continent_id_foreign FOREIGN KEY(continent_id) REFERENCES beta.continent(continent_id);
 ALTER TABLE
-    beta.city ADD CONSTRAINT city_country_id_foreign FOREIGN KEY(country_id) REFERENCES beta.country(country_id);
-ALTER TABLE
     beta.incident ADD CONSTRAINT incident_plant_id_foreign FOREIGN KEY(plant_id) REFERENCES beta.plant(plant_id);
 ALTER TABLE
-    beta.plant ADD CONSTRAINT plant_town_id_foreign FOREIGN KEY(town_id) REFERENCES beta.town(town_id);
+    beta.plant ADD CONSTRAINT plant_region_id_foreign FOREIGN KEY(region_id) REFERENCES beta.region(region_id);
 ALTER TABLE
     beta.plant_images ADD CONSTRAINT plant_images_plant_id_foreign FOREIGN KEY(plant_id) REFERENCES beta.plant(plant_id);
 ALTER TABLE
-    beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_botanist_id_foreign FOREIGN KEY(botanist_id) REFERENCES beta.botanist(botanist_id);
-ALTER TABLE
-    beta.town ADD CONSTRAINT town_city_id_foreign FOREIGN KEY(city_id) REFERENCES beta.city(city_id);
-ALTER TABLE
-    beta.plant_botanist_assignment ADD CONSTRAINT plant_botanist_assignment_plant_id_foreign FOREIGN KEY(plant_id) REFERENCES beta.plant(plant_id);
+    beta.region ADD CONSTRAINT region_country_id_foreign FOREIGN KEY(country_id) REFERENCES beta.country(country_id);
+
+
+
