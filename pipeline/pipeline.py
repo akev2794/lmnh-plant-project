@@ -37,18 +37,26 @@ def make_engine():
 
 
 def load_to_recording(df: pd.DataFrame, alchemy_engine: Engine):
-    """Upload the data to the databse."""
+    """Upload the data to the recording table."""
     for col in list(df.columns):
         if col not in ['plant_id', 'soil_moisture', 'temperature', 'taken_at']:
             raise ValueError("Invalid column names.")
+        
+    if df.empty:
+        raise ValueError("Empty dataframe")
+    
     df.to_sql('recording', alchemy_engine, schema='beta', if_exists='append', index=False)
 
 
 def load_to_incident(df: pd.DataFrame, alchemy_engine: Engine):
-    """Upload the data to the databse."""
+    """Upload the data to the incident."""
     for col in list(df.columns):
         if col not in ['plant_id', 'incident_type', 'incident_at']:
             raise ValueError("Invalid column names.")
+        
+    if df.empty:
+        raise ValueError("Empty dataframe")
+    
     df.to_sql('recording', alchemy_engine, schema='beta', if_exists='append', index=False)
 
 
