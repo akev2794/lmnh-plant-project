@@ -5,7 +5,6 @@ import pytest
 from unittest.mock import AsyncMock, patch
 import aiohttp
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import extract 
 
@@ -13,6 +12,7 @@ import extract
 async def fetch_data(session: aiohttp.ClientSession, url: str):
     async with session.get(url) as response:
         return await response.json()
+
 
 @pytest.mark.asyncio
 async def test_fetch_data_success():
@@ -28,6 +28,7 @@ async def test_fetch_data_success():
         async with aiohttp.ClientSession() as session:
             response = await fetch_data(session, url)
             assert response == expected_response
+
 
 @pytest.mark.asyncio
 async def test_fetch_all():
@@ -51,4 +52,3 @@ async def test_fetch_all():
         data = await extract.fetch_all()
         assert len(data) == 50
         assert data[0] == mock_response
-
