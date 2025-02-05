@@ -1,0 +1,27 @@
+﻿Estimate summary
+Upfront cost,Monthly cost,Total 12 months cost,Currency
+0,45.4,544.80,USD
+,,* Includes upfront cost
+
+
+Detailed Estimate
+Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Status,Configuration summary
+My Estimate,Europe (London),ECR for the ETL pipeline,Amazon Elastic Container Registry,0,0.1,1.20,USD,,Amount of data stored (1 GB per month)
+My Estimate,Europe (London),ECR for the Daily Upload,Amazon Elastic Container Registry,0,0.1,1.20,USD,,Amount of data stored (1 GB per month)
+My Estimate,Europe (London),ECR for the Dashboard,Amazon Elastic Container Registry,0,0.1,1.20,USD,,Amount of data stored (1 GB per month)
+My Estimate,Europe (London),ECR for the Plant Readings,Amazon Elastic Container Registry,0,0.1,1.20,USD,,Amount of data stored (1 GB per month)
+My Estimate,Europe (London),Lambda Function for the ETL Pipeline,AWS Lambda,0,0,0.00,USD,,"Architecture (x86), Architecture (x86), Invoke Mode (Buffered), Amount of ephemeral storage allocated (512 MB), Number of requests (1 per minute)"
+My Estimate,Europe (London),Lambda Function for Daily Uploading,AWS Lambda,0,0,0.00,USD,,"Architecture (x86), Architecture (x86), Invoke Mode (Buffered), Amount of ephemeral storage allocated (512 MB), Number of requests (1 per day)"
+My Estimate,Europe (London),Lambda Function for the Plant Readings,AWS Lambda,0,0,0.00,USD,,"Architecture (x86), Architecture (x86), Invoke Mode (Buffered), Amount of ephemeral storage allocated (512 MB), Number of requests (1 per minute)"
+My Estimate,Europe (London),,Amazon EventBridge,0,0,0.00,USD,,"Size of the payload (51200 KB), Number of invocations (2592000 per month)"
+My Estimate,Europe (London),,Amazon EventBridge,0,0,0.00,USD,,"Size of the payload (1 KB), Number of invocations (31 per month)"
+My Estimate,Europe (London),,Standard topics,0,0,0.00,USD,,Requests (450 per month)
+My Estimate,Europe (London),,S3 Standard,0,0,0.00,USD,,S3 Standard storage (0.000186 GB per month)
+My Estimate,Europe (London),,Data Transfer,0,0,0.00,USD,,
+My Estimate,Europe (London),ECS Service for the Dashboard,AWS Fargate,0,0,0.00,USD,,"Operating system (Linux), CPU Architecture (x86), Average duration (24 hours), Number of tasks or pods (1 per day), Amount of ephemeral storage allocated for Amazon ECS (20 GB)"
+My Estimate,Europe (London),,Amazon RDS for SQL server,0,45,540.00,USD,,"Storage amount (20 GB), Nodes (1), Instance type (db.t3.micro), Utilization (On-Demand only) (100 %Utilized/Month), Deployment option (Single-AZ), License (License included), Database edition (Express), Pricing strategy (OnDemand), Storage for each RDS instance (General Purpose SSD (gp2))"
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
