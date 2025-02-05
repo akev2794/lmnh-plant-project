@@ -70,7 +70,7 @@ VALUES
     ('Gifhorn', (SELECT country_id FROM beta.country WHERE country_name = 'Germany')),
     ('Bachhraon', (SELECT country_id FROM beta.country WHERE country_name = 'India')),
     ('La Ligua', (SELECT country_id FROM beta.country WHERE country_name = 'Chile')),
-    ('Dublin', (SELECT country_id FROM beta.country WHERE country_name = 'Ireland')),
+    ('Dublin', (SELECT country_id FROM beta.country WHERE country_name = 'United States')),
     ('Malaut', (SELECT country_id FROM beta.country WHERE country_name = 'India')),
     ('Magomeni', (SELECT country_id FROM beta.country WHERE country_name = 'Tanzania')),
     ('Fujioka', (SELECT country_id FROM beta.country WHERE country_name = 'Japan')),
@@ -81,7 +81,8 @@ VALUES
     ('Salima', (SELECT country_id FROM beta.country WHERE country_name = 'Malawi')),
     ('Catania', (SELECT country_id FROM beta.country WHERE country_name = 'Italy')),
     ('Calauan', (SELECT country_id FROM beta.country WHERE country_name = 'Philippines')),
-    ('Acayucan', (SELECT country_id FROM beta.country WHERE country_name = 'Mexico'));
+    ('Acayucan', (SELECT country_id FROM beta.country WHERE country_name = 'Mexico')),
+    ('Split', (SELECT country_id FROM beta.country WHERE country_name = 'Croatia'));
 
 
 INSERT INTO beta.plant (plant_id, plant_name, plant_scientific_name, region_id)
@@ -92,7 +93,7 @@ VALUES
     (4, 'Black bat flower', 'Tacca palmata', (SELECT region_id FROM beta.region WHERE region_name = 'Ilopango')),
     (5, 'Pitcher plant', 'Sarracenia catesbaei', (SELECT region_id FROM beta.region WHERE region_name = 'Jashpurnagar')),
     (6, 'Wollemi pine', 'Wollemia nobilis', (SELECT region_id FROM beta.region WHERE region_name = 'Markham')),
-    (8, 'Bird of paradise', 'Heliconia schiedeana \'Fire and Ice\'', (SELECT region_id FROM beta.region WHERE region_name = 'Bonoua')),
+    (8, 'Bird of paradise', 'Heliconia schiedeana Fire and Ice', (SELECT region_id FROM beta.region WHERE region_name = 'Bonoua')),
     (9, 'Cactus', 'Pereskia grandifolia', (SELECT region_id FROM beta.region WHERE region_name = 'Weimar')),
     (10, 'Dragon tree', 'Dracaena draco', (SELECT region_id FROM beta.region WHERE region_name = 'Split')),
     (11, 'Asclepias curassavica', 'Asclepias curassavica', (SELECT region_id FROM beta.region WHERE region_name = 'Kahului')),
@@ -104,7 +105,7 @@ VALUES
     (19, 'Banana plant', 'Musa basjoo', (SELECT region_id FROM beta.region WHERE region_name = 'Tonota')),
     (20, 'Salvia', 'Salvia splendens', (SELECT region_id FROM beta.region WHERE region_name = 'Reus')),
     (21, 'Anthurium', 'Anthurium andraeanum', (SELECT region_id FROM beta.region WHERE region_name = 'Carlos Barbosa')),
-    (22, 'Bird of paradise', 'Heliconia schiedeana \'Fire and Ice\'', (SELECT region_id FROM beta.region WHERE region_name = 'Friedberg')),
+    (22, 'Bird of paradise', 'Heliconia schiedeana Fire and Ice', (SELECT region_id FROM beta.region WHERE region_name = 'Friedberg')),
     (23, 'Cordyline', 'Cordyline fruticosa', (SELECT region_id FROM beta.region WHERE region_name = 'Charlottenburg-Nord')),
     (24, 'Ficus', 'Ficus carica', (SELECT region_id FROM beta.region WHERE region_name = 'Motomachi')),
     (25, 'Palm trees', 'Arecaceae', (SELECT region_id FROM beta.region WHERE region_name = 'Ar Ruseris')),
@@ -126,7 +127,7 @@ VALUES
     (41, 'Caladium', 'Caladium bicolor', (SELECT region_id FROM beta.region WHERE region_name = 'Pujali')),
     (42, 'Chlorophytum', 'Chlorophytum comosum', (SELECT region_id FROM beta.region WHERE region_name = 'Smolyan')),
     (44, 'Araucaria', 'Araucaria heterophylla', (SELECT region_id FROM beta.region WHERE region_name = 'Zacoalco de Torres')),
-    (45, 'Begonia', 'Begonia \'Art Hodes\'', (SELECT region_id FROM beta.region WHERE region_name = 'South Whittier')),
+    (45, 'Begonia', 'Begonia Art Hodes', (SELECT region_id FROM beta.region WHERE region_name = 'South Whittier')),
     (46, 'Medinilla', 'Medinilla magnifica', (SELECT region_id FROM beta.region WHERE region_name = 'Salima')),
     (47, 'Calliandra', 'Calliandra haematocephala', (SELECT region_id FROM beta.region WHERE region_name = 'Catania')),
     (48, 'Zamioculcas', 'Zamioculcas zamiifolia', (SELECT region_id FROM beta.region WHERE region_name = 'Calauan')),
