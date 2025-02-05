@@ -4,3 +4,5 @@ pylint
 pytest
 pytest-asyncio
 SQLAlchemy
+python-dotenv
+pyodbc
