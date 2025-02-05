@@ -1,9 +1,10 @@
+
 DROP TABLE IF EXISTS beta.botanist;
-DROP TABLE IF EXISTS beta.plant_images;
-DROP TABLE IF EXISTS beta.region;
-DROP TABLE IF EXISTS beta.plant;
-DROP TABLE IF EXISTS beta.incident;
 DROP TABLE IF EXISTS beta.recording;
+DROP TABLE IF EXISTS beta.plant_images;
+DROP TABLE IF EXISTS beta.incident;
+DROP TABLE IF EXISTS beta.plant;
+DROP TABLE IF EXISTS beta.region;
 DROP TABLE IF EXISTS beta.country;
 DROP TABLE IF EXISTS beta.continent;
 
