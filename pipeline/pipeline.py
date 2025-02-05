@@ -4,80 +4,33 @@ The file swill pull data for the API, clean it
 and upload it to the AWS relational database.
 """
 
-# Native imports
-from os import environ as ENV
-from datetime import datetime
-
 # Third-party imports
 import pandas as pd
-from sqlalchemy import create_engine, Engine
-from sqlalchemy.engine import URL
+from sqlalchemy import Engine
 
 
 # Local imports
 from dotenv import load_dotenv
+
 from extract import create_dataframe
-# from transform import ...
-
-
-def make_engine():
-    """Creates sqlalchemy engine."""
-    connection_string = f"""
-        DRIVER={{ODBC Driver 18 for SQL Server}};
-        SERVER={ENV["DB_HOST"]},{ENV["DB_PORT"]};
-        DATABASE={ENV["DB_NAME"]};
-        UID={ENV["DB_USER"]};
-        PWD={ENV["DB_PASSWORD"]};
-        TrustServerCertificate=Yes"""
-
-    connection_url = URL.create(
-        "mssql+pyodbc", query={"odbc_connect": connection_string}
-    )
-    return create_engine(connection_url)
+from transform import process_plant_data, make_engine
 
 
 def load_to_recording(df: pd.DataFrame, alchemy_engine: Engine):
     """Upload the data to the recording table."""
     for col in list(df.columns):
-        if col not in ['plant_id', 'soil_moisture', 'temperature', 'taken_at']:
+        if col not in ["plant_id", "soil_moisture", "temperature", "last_watered", "taken_at"]:
             raise ValueError("Invalid column names.")
         
     if df.empty:
         raise ValueError("Empty dataframe")
     
-    df.to_sql('recording', alchemy_engine, schema='beta', if_exists='append', index=False)
-
-
-def load_to_incident(df: pd.DataFrame, alchemy_engine: Engine):
-    """Upload the data to the incident."""
-    for col in list(df.columns):
-        if col not in ['plant_id', 'incident_type', 'incident_at']:
-            raise ValueError("Invalid column names.")
-        
-    if df.empty:
-        raise ValueError("Empty dataframe")
-    
-    df.to_sql('recording', alchemy_engine, schema='beta', if_exists='append', index=False)
-
-
-def transform_data():
-    """Transform the extracted data."""
-    pass
+    df.to_sql("recording", alchemy_engine, schema="beta", if_exists="append", index=False)
 
 
 if __name__ == "__main__":
-    # Initialise
     load_dotenv()
     engine = make_engine()
-
-
-    # Extract
-    # plants_df = create_dataframe()
-
-
-    # Transform - EXAMPLE
-    # plants_df = transform(plants_df)
-
-
-    # Load
-    load_to_recording(plant_df, engine)
+    plants_df = create_dataframe()
+    plants_df = process_plant_data(plants_df)
+    load_to_recording(plants_df, engine)
