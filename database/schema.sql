@@ -22,9 +22,12 @@ ALTER TABLE
 CREATE TABLE beta.plant(
     plant_id SMALLINT NOT NULL,
     plant_name VARCHAR(255) NOT NULL,
-    last_watered TIMESTAMP,
     region_id SMALLINT NOT NULL,
-    plant_scientific_name VARCHAR(75)
+    plant_scientific_name VARCHAR(75),
+    min_temp FLOAT(53),
+    max_temp FLOAT(53),
+    min_moisture FLOAT(53),
+    max_moisture FLOAT(53)
 );
 ALTER TABLE
     beta.plant ADD CONSTRAINT plant_id_primary PRIMARY KEY(plant_id);
@@ -34,7 +37,8 @@ CREATE TABLE beta.recording(
     plant_id SMALLINT NOT NULL,
     soil_moisture FLOAT(53) NOT NULL,
     temperature FLOAT(53) NOT NULL,
-    taken_at TIMESTAMP NOT NULL
+    last_watered DATETIME,
+    taken_at DATETIME
 );
 ALTER TABLE
     beta.recording ADD CONSTRAINT recording_id_primary PRIMARY KEY(recording_id);
