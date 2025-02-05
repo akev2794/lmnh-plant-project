@@ -70,7 +70,7 @@ VALUES
     ('Gifhorn', (SELECT country_id FROM beta.country WHERE country_name = 'Germany')),
     ('Bachhraon', (SELECT country_id FROM beta.country WHERE country_name = 'India')),
     ('La Ligua', (SELECT country_id FROM beta.country WHERE country_name = 'Chile')),
-    ('Dublin', (SELECT country_id FROM beta.country WHERE country_name = 'Ireland')),
+    ('Dublin', (SELECT country_id FROM beta.country WHERE country_name = 'United States')),
     ('Malaut', (SELECT country_id FROM beta.country WHERE country_name = 'India')),
     ('Magomeni', (SELECT country_id FROM beta.country WHERE country_name = 'Tanzania')),
     ('Fujioka', (SELECT country_id FROM beta.country WHERE country_name = 'Japan')),
@@ -81,7 +81,8 @@ VALUES
     ('Salima', (SELECT country_id FROM beta.country WHERE country_name = 'Malawi')),
     ('Catania', (SELECT country_id FROM beta.country WHERE country_name = 'Italy')),
     ('Calauan', (SELECT country_id FROM beta.country WHERE country_name = 'Philippines')),
-    ('Acayucan', (SELECT country_id FROM beta.country WHERE country_name = 'Mexico'));
+    ('Acayucan', (SELECT country_id FROM beta.country WHERE country_name = 'Mexico')),
+    ('Split', (SELECT country_id FROM beta.country WHERE country_name = 'Croatia'));
 
 
 INSERT INTO beta.plant (plant_id, plant_name, plant_scientific_name, region_id)
