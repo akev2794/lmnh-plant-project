@@ -51,7 +51,7 @@ if __name__ == "__main__":
         plants_df = process_plant_data(plants_df, conn)
         plants_data = format_plant_data(plants_df)
         load_to_recording(plants_data, conn)
-        print("loaded")
+        sleep(40)
         
 
     conn.close()
