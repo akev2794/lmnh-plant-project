@@ -10,8 +10,7 @@ from os import environ as ENV
 
 # Third-party imports
 import pandas as pd
-from sqlalchemy import create_engine, text, Engine
-from sqlalchemy.engine import URL
+import pyodbc
 
 
 def last_watered_safe_parse_datetime(date_str: str) -> datetime:
@@ -26,20 +25,20 @@ def last_watered_safe_parse_datetime(date_str: str) -> datetime:
         return pd.NA
 
 
-def get_plant_ids(engine: Engine) -> dict:
+def get_plant_ids(connection: pyodbc.Connection) -> dict:
     """Returns available plant ids."""
     query = """SELECT plant_id
     FROM beta.plant;"""
-    with engine.connect() as conn:
-        result = conn.execute(text(query))
+    with connection.cursor() as cur:
+        result = cur.execute(query)
         plant_ids = [row[0] for row in result.fetchall()]
         return plant_ids
 
 
-def process_plant_data(df: pd.DataFrame) -> pd.DataFrame:
+def process_plant_data(df: pd.DataFrame, connection: pyodbc.Connection) -> pd.DataFrame:
     """Processes data, returning DataFrame with plant_id, soil_moisture, temperature, taken_at."""
     df = df[["plant_id", "soil_moisture", "temperature", "last_watered"]].copy()
-    current_plant_ids = get_plant_ids(make_engine())
+    current_plant_ids = get_plant_ids(connection)
     df = df[df["plant_id"].isin(current_plant_ids)]
     df["last_watered"] = pd.to_datetime(df["last_watered"].astype(str).apply(
         last_watered_safe_parse_datetime)).astype("datetime64[s]")
@@ -52,3 +51,11 @@ def process_plant_data(df: pd.DataFrame) -> pd.DataFrame:
     df["plant_id"] = df["plant_id"].astype("int64")
 
     return df
+
+
+def format_plant_data(df: pd.DataFrame):
+    """Creates a list of values for uploads."""
+    rows = df.to_dict(orient="records")
+    return [(row["plant_id"], row["soil_moisture"], 
+            row["temperature"], row["last_watered"], 
+            row["taken_at"])  for row in rows]

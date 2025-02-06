@@ -5,7 +5,7 @@ This folder has all the necessary files for the pipeline. The scripts perform th
 ### Requirements
 
 - SQL Server
-- Microsoft ODBC 18 (see [docs](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16))
+- Microsoft ODBC 18 (see [docs](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver18))
 - Install all dependencies from `requirements.txt`.
 
 ### extract.py
