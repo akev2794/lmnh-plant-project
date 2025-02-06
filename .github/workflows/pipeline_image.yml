@@ -30,7 +30,7 @@ jobs:
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPOSITORY: ${{ secrets.ETL_REPO_NAME }}
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: latest
         run: |
           cd pipeline
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
