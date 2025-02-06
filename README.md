@@ -42,6 +42,14 @@ Each file must be run in their respective directory.\
 Similarly when making AWS resources using terraform you must be in the terraform folder.\
 See each folder for requirements.txt and READMEs.
 
-#### Enviroment Variables
+#### Environment Variables
 
 Each folder must contain a .env file (or .tfvars for terraform), the folder breakdown below will provide the relevant details for each file.
+
+### GitHub Secrets
+
+In order to use the github action for pushing the pipeline image to the AWS ECR, the following github secrets are required:
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- REPO_NAME
