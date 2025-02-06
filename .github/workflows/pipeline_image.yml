@@ -1,9 +1,9 @@
   name: Push the Docker image to AWS ECR Repo
 
   on:
-  pull_request:
-    types:
-      - closed
+    pull_request:
+      types:
+        - closed
 
   jobs:
     Build:
