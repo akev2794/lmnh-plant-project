@@ -136,8 +136,8 @@ VALUES
     (40, 'Amaryllis', 'Hippeastrum', (SELECT region_id FROM beta.region WHERE region_name = 'Valence'), (SELECT botanist_id FROM beta.botanist WHERE email = 'eliza.andrews@lnhm.co.uk')),
     (41, 'Caladium', 'Caladium bicolor', (SELECT region_id FROM beta.region WHERE region_name = 'Pujali'), (SELECT botanist_id FROM beta.botanist WHERE email = 'carl.linnaeus@lnhm.co.uk')),
     (42, 'Chlorophytum', 'Chlorophytum comosum', (SELECT region_id FROM beta.region WHERE region_name = 'Smolyan'), (SELECT botanist_id FROM beta.botanist WHERE email = 'carl.linnaeus@lnhm.co.uk')),
-    (44, 'Araucaria', 'Araucaria heterophylla', (SELECT region_id FROM beta.region WHERE region_name = 'Zacoalco de Torres'), (SELECT botanist_id FROM beta.botanist WHERE email = 'gertrude.jekyll@lnhm.co.uk"')),
-    (45, 'Begonia', 'Begonia Art Hodes', (SELECT region_id FROM beta.region WHERE region_name = 'South Whittier'), (SELECT botanist_id FROM beta.botanist WHERE email = 'gertrude.jekyll@lnhm.co.uk"')),
+    (44, 'Araucaria', 'Araucaria heterophylla', (SELECT region_id FROM beta.region WHERE region_name = 'Zacoalco de Torres'), (SELECT botanist_id FROM beta.botanist WHERE email = 'gertrude.jekyll@lnhm.co.uk')),
+    (45, 'Begonia', 'Begonia Art Hodes', (SELECT region_id FROM beta.region WHERE region_name = 'South Whittier'), (SELECT botanist_id FROM beta.botanist WHERE email = 'gertrude.jekyll@lnhm.co.uk')),
     (46, 'Medinilla', 'Medinilla magnifica', (SELECT region_id FROM beta.region WHERE region_name = 'Salima'), (SELECT botanist_id FROM beta.botanist WHERE email = 'eliza.andrews@lnhm.co.uk')),
     (47, 'Calliandra', 'Calliandra haematocephala', (SELECT region_id FROM beta.region WHERE region_name = 'Catania'), (SELECT botanist_id FROM beta.botanist WHERE email = 'eliza.andrews@lnhm.co.uk')),
     (48, 'Zamioculcas', 'Zamioculcas zamiifolia', (SELECT region_id FROM beta.region WHERE region_name = 'Calauan'), (SELECT botanist_id FROM beta.botanist WHERE email = 'carl.linnaeus@lnhm.co.uk')),
@@ -153,4 +153,14 @@ SET
     max_temp = 30.0,
     min_moisture = 40,
     max_moisture = 60;
+
+
+UPDATE beta.plant
+SET botanist_id = (
+    SELECT botanist_id
+    FROM beta.botanist
+    WHERE email = 'botanist_email@example.com'
+)
+WHERE plant_id = @plant_id;
+
    
