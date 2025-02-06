@@ -154,13 +154,4 @@ SET
     min_moisture = 40,
     max_moisture = 60;
 
-
-UPDATE beta.plant
-SET botanist_id = (
-    SELECT botanist_id
-    FROM beta.botanist
-    WHERE email = 'botanist_email@example.com'
-)
-WHERE plant_id = @plant_id;
-
    
