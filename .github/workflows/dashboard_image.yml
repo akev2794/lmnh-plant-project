@@ -1,4 +1,4 @@
-name: Push the pipeline image to AWS ECR Repo
+name: Push the dashboard image to AWS ECR Repo
 
 on:
   pull_request:
@@ -29,10 +29,10 @@ jobs:
       - name: Build, tag, and push docker image to Amazon ECR
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: ${{ secrets.ETL_REPO_NAME }} ### CHANGE REPO NAME
+          REPOSITORY: ${{ secrets.DASHBOARD_REPO_NAME }} ### CHANGE REPO NAME
           IMAGE_TAG: latest
           ### CHANGE FOLDER LOCATION
         run: |
-          cd pipeline
+          cd dashboard
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
