@@ -39,7 +39,7 @@ def get_plant_details(plant_id):
         beta.plant p
         JOIN beta.region r ON p.region_id = r.region_id
         JOIN beta.country c ON r.country_id = c.country_id
-        LEFT JOIN beta.botanist b ON r.country_id = b.botanist_id  -- Adjusted line
+        LEFT JOIN beta.botanist b ON p.botanist_id = b.botanist_id
     WHERE
         p.plant_id = ?
     """
@@ -50,15 +50,26 @@ def get_plant_details(plant_id):
 def get_plant_data(plant_id, time_range):
     """Fetches temperature and soil moisture for a given plant and time range."""
     connection = get_db_connection()
-    
+
+    query_recent = """
+    SELECT MAX(taken_at) AS most_recent_time
+    FROM beta.recording
+    WHERE plant_id = ?
+    """
+    recent_df = pd.read_sql(query_recent, connection, params=(plant_id,))
+    most_recent_time = recent_df['most_recent_time'].iloc[0]
+    if most_recent_time is None:
+        connection.close()
+        return pd.DataFrame()
+
     if time_range == "Last Hour":
-        start_time = datetime.now() - timedelta(hours=1)
+        start_time = most_recent_time - timedelta(hours=1)
     elif time_range == "Last 24 Hours":
-        start_time = datetime.now() - timedelta(days=1)
+        start_time = most_recent_time - timedelta(days=1)
     elif time_range == "Last Week":
-        start_time = datetime.now() - timedelta(weeks=1)
-    else:
-        start_time = datetime.now() - timedelta(days=30)
+        start_time = most_recent_time - timedelta(weeks=1)
+    elif time_range == "Last 30 Days":
+        start_time = most_recent_time - timedelta(days=30)
 
     query = """
     SELECT
@@ -74,32 +85,47 @@ def get_plant_data(plant_id, time_range):
     """
     df = pd.read_sql(query, connection, params=(plant_id, start_time))
     connection.close()
+
+    df['taken_at'] = pd.to_datetime(df['taken_at'])
+
+    df = df.set_index('taken_at').rolling('3T').mean().reset_index()
     return df
 
 def get_emergencies_within_period(plant_id, time_range):
     """Fetches the number of emergencies for a given plant within a specified time range."""
     connection = get_db_connection()
-    
+
+    query_recent = """
+    SELECT MAX(incident_at) AS most_recent_incident_time
+    FROM beta.incident
+    WHERE plant_id = ?
+    """
+    recent_df = pd.read_sql(query_recent, connection, params=(plant_id,))
+    most_recent_incident_time = recent_df['most_recent_incident_time'].iloc[0]
+    if most_recent_incident_time is None:
+        connection.close()
+        return 0
+
     if time_range == "Last Hour":
-        start_time = datetime.now() - timedelta(hours=1)
+        start_time = most_recent_incident_time - timedelta(hours=1)
     elif time_range == "Last 24 Hours":
-        start_time = datetime.now() - timedelta(days=1)
+        start_time = most_recent_incident_time - timedelta(days=1)
     elif time_range == "Last Week":
-        start_time = datetime.now() - timedelta(weeks=1)
-    else:
-        start_time = datetime.now() - timedelta(days=30)
+        start_time = most_recent_incident_time - timedelta(weeks=1)
+    elif time_range == "Last 30 Days":
+        start_time = most_recent_incident_time - timedelta(days=30)
+
     query = """
     SELECT COUNT(*) as emergency_count
     FROM beta.incident
     WHERE plant_id = ?
-    AND CAST(incident_at AS DATETIME) >= ?  -- CAST timestamp as DATETIME
+    AND incident_at >= ?  -- Filter by start time
     """
     cursor = connection.cursor()
     cursor.execute(query, (plant_id, start_time))
     result = cursor.fetchone()
     connection.close()
     return result[0]
-
 
 def display_plant_data():
     plant_id = st.selectbox("Select Plant ID", list(range(1, 51)))
@@ -122,13 +148,14 @@ def display_plant_data():
         st.write(f"**Botanist**: {botanist_first_name} {botanist_last_name}")
     
     plant_data = get_plant_data(plant_id, time_range)
-    emergency_count = get_emergencies_within_period(plant_id, time_range)
 
+    emergency_count = get_emergencies_within_period(plant_id, time_range)
     st.write(f"Emergencies in the {time_range.lower()} for plant id {plant_id}: {emergency_count}")
 
     st.subheader(f"Temperature over Time ({time_range})")
     if not plant_data.empty:
         temp_fig = px.line(plant_data, x='taken_at', y='temperature', title="Temperature Over Time")
+        temp_fig.update_xaxes(type='date')
         st.plotly_chart(temp_fig)
     else:
         st.write("No data available for the selected time period.")
@@ -136,6 +163,7 @@ def display_plant_data():
     st.subheader(f"Soil Moisture over Time ({time_range})")
     if not plant_data.empty:
         moisture_fig = px.line(plant_data, x='taken_at', y='soil_moisture', title="Soil Moisture Over Time")
+        moisture_fig.update_xaxes(type='date')
         st.plotly_chart(moisture_fig)
     else:
         st.write("No data available for the selected time period.")
