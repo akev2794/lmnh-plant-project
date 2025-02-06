@@ -80,7 +80,7 @@ CREATE TABLE beta.incident(
     incident_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
     incident_type VARCHAR(11),
-    incident_at TIMESTAMP NOT NULL
+    incident_at DATETIME NOT NULL
 );
 ALTER TABLE
     beta.incident ADD CONSTRAINT incident_incident_id_primary PRIMARY KEY(incident_id);
@@ -100,6 +100,7 @@ ALTER TABLE
     beta.region ADD CONSTRAINT region_country_id_foreign FOREIGN KEY(country_id) REFERENCES beta.country(country_id);
 ALTER TABLE
     beta.plant ADD CONSTRAINT botanist_id_foreign FOREIGN KEY(botanist_id) REFERENCES beta.botanist(botanist_id);
+
 
 
 
