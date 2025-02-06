@@ -88,6 +88,7 @@ def get_plant_data(plant_id, time_range):
 
     df['taken_at'] = pd.to_datetime(df['taken_at'])
 
+    df = df.set_index('taken_at').rolling('3T').mean().reset_index()
     return df
 
 def get_emergencies_within_period(plant_id, time_range):
