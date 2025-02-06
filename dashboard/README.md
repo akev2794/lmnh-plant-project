@@ -7,6 +7,13 @@ This folder has all the necessary files for the dashboard.
 - Streamlit must be installed.
 - install all dependencies from `requirements.txt`.
 
+### Libraries needed
+
+- `Streamlit` - for the visualisations to be created
+- `pyodbc` - which is needed for the connection for the database
+- `pandas` - needed for handling SQL query results that can be processed and managed
+- `plotly` - a graphing library that is needed for the high-quality visualisations
+
 ### dashboard.py
 
 A python file for creating the streamlit dashboard.
