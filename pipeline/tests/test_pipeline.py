@@ -10,7 +10,7 @@ import pandas as pd
 import pytest
 
 # Local modules 
-from pipeline import load_to_recording, load_to_incident
+from pipeline import load_to_recording
 
 
 

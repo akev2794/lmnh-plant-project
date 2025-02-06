@@ -3,7 +3,6 @@ pandas
 pylint
 pytest
 pytest-asyncio
-SQLAlchemy
 python-dotenv
 pyodbc
-mock-alchemy
+pymssql
