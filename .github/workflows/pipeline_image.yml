@@ -1,9 +1,11 @@
 name: Push the Docker image to AWS ECR Repo
 
 on:
-  push:
-    branches:
-      -rob-continuous-integration
+  pull_request:
+    types:
+      - closed
+
+  workflow_dispatch:
 
 jobs:
   Build:
@@ -13,7 +15,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Configure AWS credentials 
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
