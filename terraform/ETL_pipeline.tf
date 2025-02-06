@@ -43,7 +43,7 @@ resource "aws_lambda_function" "c15-incitatus-etl-pipeline-lambda-function" {
   package_type = "Image"
   image_uri = data.aws_ecr_image.latest_pipeline_image.image_uri
   memory_size = 128
-  timeout = 3
+  timeout = 35
   environment {
     variables = {
       DB_HOST = var.DB_HOST
@@ -57,17 +57,17 @@ resource "aws_lambda_function" "c15-incitatus-etl-pipeline-lambda-function" {
   role = aws_iam_role.lambda_task_role.arn
 }
 
-# EventBridge Scheduler to run every minute
+# # EventBridge Scheduler to run every minute
 
-resource "aws_scheduler_schedule" "c15-incitatus-etl-pipeline-schedule" {
-  name = "c15-incitatus-etl-pipeline-scheduler"
-  description = "Runs the ETL pipeline script from a Lambda Function every minute"
-  schedule_expression = "rate(1 minute)"
-  flexible_time_window {
-    mode = "OFF"
-  }
-  target {
-    arn      = ""
-    role_arn = ""
-  }
-}
+# resource "aws_scheduler_schedule" "c15-incitatus-etl-pipeline-schedule" {
+#   name = "c15-incitatus-etl-pipeline-scheduler"
+#   description = "Runs the ETL pipeline script from a Lambda Function every minute"
+#   schedule_expression = "rate(1 minute)"
+#   flexible_time_window {
+#     mode = "OFF"
+#   }
+#   target {
+#     arn      = ""
+#     role_arn = ""
+#   }
+# }
