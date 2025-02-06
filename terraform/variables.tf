@@ -36,3 +36,6 @@ variable "DB_USER" {
 variable "SCHEMA_NAME" {
     type = string
 }
+variable "ACCOUNT_NUMBER" {
+    type = string
+}
