@@ -140,3 +140,11 @@ VALUES
     ('Gertrude', 'Jekyll', '001-481-273-3691x127', 'gertrude.jekyll@lnhm.co.uk'),  
     ('Carl', 'Linnaeus', '(146)994-1635x35992', 'carl.linnaeus@lnhm.co.uk'),  
     ('Eliza', 'Andrews', '(846)669-6651x75948', 'eliza.andrews@lnhm.co.uk');
+
+UPDATE beta.plant
+SET
+    min_temp = 15.0,
+    max_temp = 30.0,
+    min_moisture = 40,
+    max_moisture = 60;
+   
