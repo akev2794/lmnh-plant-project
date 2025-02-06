@@ -1,4 +1,4 @@
-name: Push the Docker image to AWS ECR Repo
+name: Push the pipeline image to AWS ECR Repo
 
 on:
   pull_request:
