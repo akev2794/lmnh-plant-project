@@ -1,9 +1,11 @@
 name: Push the Docker image to AWS ECR Repo
 
 on:
-  push:
-    branches:
-      -rob-continuous-integration
+  pull_request:
+    types:
+      - closed
+
+  workflow_dispatch:
 
 jobs:
   Build:
