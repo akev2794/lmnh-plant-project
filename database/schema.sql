@@ -1,9 +1,9 @@
 
-DROP TABLE IF EXISTS beta.botanist;
 DROP TABLE IF EXISTS beta.recording;
 DROP TABLE IF EXISTS beta.plant_images;
 DROP TABLE IF EXISTS beta.incident;
 DROP TABLE IF EXISTS beta.plant;
+DROP TABLE IF EXISTS beta.botanist;
 DROP TABLE IF EXISTS beta.region;
 DROP TABLE IF EXISTS beta.country;
 DROP TABLE IF EXISTS beta.continent;
@@ -24,6 +24,7 @@ CREATE TABLE beta.plant(
     plant_name VARCHAR(255) NOT NULL,
     region_id SMALLINT NOT NULL,
     plant_scientific_name VARCHAR(75),
+    botanist_id SMALLINT,
     min_temp FLOAT(53),
     max_temp FLOAT(53),
     min_moisture FLOAT(53),
@@ -97,6 +98,8 @@ ALTER TABLE
     beta.plant_images ADD CONSTRAINT plant_images_plant_id_foreign FOREIGN KEY(plant_id) REFERENCES beta.plant(plant_id);
 ALTER TABLE
     beta.region ADD CONSTRAINT region_country_id_foreign FOREIGN KEY(country_id) REFERENCES beta.country(country_id);
+ALTER TABLE
+    beta.plant ADD CONSTRAINT botanist_id_foreign FOREIGN KEY(botanist_id) REFERENCES beta.botanist(botanist_id);
 
 
 
