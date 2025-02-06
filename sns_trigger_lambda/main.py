@@ -1,5 +1,5 @@
 from os import environ as ENV
-from datetime import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 from dotenv import load_dotenv
 import pyodbc
@@ -109,6 +109,23 @@ def get_out_of_range_type(row):
         return None
 
 
+def check_existing_incident(plant_id, incident_type, connection: pyodbc.Connection):
+    """Check if an incident for the plant and incident type has been recorded in the last 15 minutes."""
+    cursor = connection.cursor()
+    query = """
+    SELECT 1
+    FROM beta.incident
+    WHERE plant_id = ? 
+    AND incident_type = ?
+    AND incident_at >= ?
+    """
+    time_threshold = datetime.now() - timedelta(minutes=15)
+    cursor.execute(query, (plant_id, incident_type, time_threshold))
+    result = cursor.fetchone()
+    cursor.close()
+    return result is not None
+
+
 def format_data(df, connection):
     """Takes in plant readings and the min and max ranges and makes the relevant columns in a DataFrame"""
     min_max_values = get_ranges(connection)
@@ -139,8 +156,16 @@ def format_data(df, connection):
 
     df_last_reading_details = df_last_reading[[
         'plant_id', 'out_of_range_type', 'taken_at', 'temperature_reading', 'soil_moisture_reading']]
+    records_to_insert = []
 
-    return df_last_reading_details
+    for _, record in df_last_reading_details.iterrows():
+        plant_id = record['plant_id']
+        out_of_range_type = record['out_of_range_type']
+        if check_existing_incident(plant_id, out_of_range_type, connection):
+            continue
+        records_to_insert.append(record)
+    df_filtered = pd.DataFrame(records_to_insert)
+    return df_filtered
 
 
 def format_json(df):
