@@ -260,4 +260,5 @@ def lambda_handler(event=None, context=None):
         'statusCode': 200,
         'body': email_data
     }
+    conn.close()
 
