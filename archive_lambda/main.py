@@ -1,9 +1,9 @@
 """A module that takes the plant readings and incidents from the last 24 hours and archives them as parquet files in S3."""
-
 import pyodbc
 import boto3
 from os import environ as ENV, remove
 from datetime import datetime, timedelta
+import pandas as pd
 from dotenv import load_dotenv
 
 
@@ -142,7 +142,7 @@ def lambda_handler(event=None, context=None):
         upload_to_s3(incident_file_path, bucket_name, s3_incident_key)
         remove(recording_file_path)
         remove(incident_file_path)
-
+        conn.close()
         return {
             'statusCode': 200,
             'body': "File uploaded to S3 successfully."
@@ -152,6 +152,3 @@ def lambda_handler(event=None, context=None):
             'statusCode': 500,
             'body': "Failed to connect to the database."
         }
-    conn.close()
-
-
