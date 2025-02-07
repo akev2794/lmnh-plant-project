@@ -1,25 +1,23 @@
-FROM public.ecr.aws/lambda/python:latest
+FROM public.ecr.aws/lambda/python:3.9
 
-WORKDIR %{LAMBDA_TASK_ROOT}
+WORKDIR ${LAMBDA_TASK_ROOT}
 
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt
-
-RUN apt-get update -y \
-    && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-    && curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
-    && apt-get update -y \
-    && apt-get remove -y unixodbc-dev \
-    && ACCEPT_EULA=Y apt-get install -y msodbcsql18 \
-    && ACCEPT_EULA=Y apt-get install -y mssql-tools18 \
+RUN yum update -y \
+    && curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo \
+    && yum remove unixODBC-utf16 unixODBC-utf16-devel \
+    && ACCEPT_EULA=Y yum install -y msodbcsql18  \
+    && ACCEPT_EULA=Y yum install -y mssql-tools18 \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && source ~/.bashrc \
-    && apt-get install -y unixodbc-dev \
-    && apt-get install -y g++ \
-    && apt-get clean
+    && yum install -y unixODBC-devel \
+    && yum install -y gcc-c++ \
+    && yum clean all \
+    && pip install --no-cache-dir --upgrade pip setuptools \ 
+    && pip install --no-cache-dir -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
 
-COPY main.python
+COPY main.py .
 
-CMD [ "main.lambda_handler" ]
+CMD ["main.handler"]
 

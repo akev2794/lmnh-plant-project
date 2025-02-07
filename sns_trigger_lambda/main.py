@@ -233,7 +233,7 @@ def format_email_body_from_json(json_data):
     return email_body
 
 
-def lambda_handler(event=None, context=None):
+def handler(event=None, context=None):
     """AWS Lambda handler function."""
     conn = make_connection()
 
@@ -252,13 +252,12 @@ def lambda_handler(event=None, context=None):
             'shouldSendEmail': False,
             'statusCode': 200,
             'body': ""
-    }        
+        }
     email_data = format_email_body_from_json(json_data)
     insert_incidents(json_data, conn)
+    conn.close()
     return {
         'shouldSendEmail': True,
         'statusCode': 200,
         'body': email_data
     }
-    conn.close()
-
