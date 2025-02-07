@@ -1,7 +1,5 @@
 # pylint: skip-file
 
-import sys
-import os
 import pytest
 from unittest.mock import AsyncMock, patch
 import aiohttp

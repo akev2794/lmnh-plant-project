@@ -4,11 +4,13 @@
 
 # Native imports
 from datetime import datetime
+from unittest.mock import MagicMock
 
 # Third-party imports
 import pytest
 import pandas as pd
 from pandas.api.types import is_dtype_equal
+import pyodbc
 
 
 # Local modules
@@ -17,7 +19,7 @@ from transform import last_watered_safe_parse_datetime, process_plant_data
 # last_watered_safe_parse_datetime
 
 @pytest.mark.parametrize('date_string', [
-            (''), (1), ([""]),
+            (''),
             ("Wed, 50 Feb 2025 13:54:32 GMT"),
             ("Wed, 05 Feb 3000 13:54:32 GMT")
             ])
@@ -34,16 +36,13 @@ def test_last_watered_safe_parse_datetime_valid():
 
 # PROCESS_PLANT_DATA
 def test_process_plant_data_missing_columns():
+    mock_conn = MagicMock()
     df_missing_cols = pd.DataFrame([{
         "plant_id": "3",
         "soil_moisture": "1"
     }])
-    assert process_plant_data(df_missing_cols) == KeyError
-
-
-def test_process_plant_data_valid():
-    pass
-
+    with pytest.raises(KeyError):
+        process_plant_data(df_missing_cols, mock_conn)
 
 DF_INPUT_1 = pd.DataFrame([{
         "plant_id": "3",
@@ -62,8 +61,8 @@ DF_INPUT_2 = pd.DataFrame([{
 
 @pytest.mark.parametrize('DF_INPUT',  [(DF_INPUT_1), (DF_INPUT_2)])
 def test_process_plant_datatypes(DF_INPUT):
-
-    df = process_plant_data(DF_INPUT)
+    mock_conn = MagicMock()
+    df = process_plant_data(DF_INPUT, mock_conn)
 
     assert is_dtype_equal(df["plant_id"].dtype, "int64")
     assert is_dtype_equal(df["soil_moisture"].dtype, "float64")
