@@ -21,12 +21,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-
       - name: Run pipeline tests
         run: |
           cd pipeline
