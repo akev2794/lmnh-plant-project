@@ -6,7 +6,6 @@ and prepare it for uploading to the AWS relational database.
 
 # Native imports
 from datetime import datetime
-from os import environ as ENV
 
 # Third-party imports
 import pandas as pd
@@ -56,6 +55,6 @@ def process_plant_data(df: pd.DataFrame, connection: pyodbc.Connection) -> pd.Da
 def format_plant_data(df: pd.DataFrame):
     """Creates a list of values for uploads."""
     rows = df.to_dict(orient="records")
-    return [(row["plant_id"], row["soil_moisture"], 
-            row["temperature"], row["last_watered"], 
+    return [(row["plant_id"], row["soil_moisture"],
+            row["temperature"], row["last_watered"],
             row["taken_at"])  for row in rows]

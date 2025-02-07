@@ -1,3 +1,7 @@
+# pylint: skip-file
+"""Reads tests data json and inserts it into the database
+to allow someone to work on the dashboard with data while the pipeline is being built"""
+
 import pandas as pd
 import json
 import pyodbc
