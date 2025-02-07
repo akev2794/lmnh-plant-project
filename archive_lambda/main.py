@@ -127,6 +127,7 @@ def upload_to_s3(file_path, bucket_name, s3_key):
 
 def lambda_handler(event=None, context=None):
     """Lambda handler function."""
+    load_dotenv()
     conn = make_connection()
 
     if conn:
@@ -145,7 +146,7 @@ def lambda_handler(event=None, context=None):
         conn.close()
         return {
             'statusCode': 200,
-            'body': "File uploaded to S3 successfully."
+            'body': "Files uploaded to S3 successfully."
         }
     else:
         return {
