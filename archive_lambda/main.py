@@ -1,11 +1,12 @@
-"""A module that takes the plant readings and incidents from the last 24 hours and archives them as parquet files in S3."""
-import pyodbc
-import boto3
+"""A module that takes the plant readings and incidents from the 
+last 24 hours and archives them as parquet files in S3."""
+#pylint: disable=import-error, unused-argument, c-extension-no-member
 from os import environ as ENV, remove
 from datetime import datetime, timedelta
+import pyodbc
+import boto3
 import pandas as pd
 from dotenv import load_dotenv
-
 
 def make_connection():
     """Creates a database connection using pyodbc."""
@@ -28,6 +29,7 @@ def make_connection():
 
 
 def get_time():
+    """Gets the previous day's time."""
     return datetime.now() - timedelta(days=1)
 
 
@@ -152,8 +154,7 @@ def handler(event=None, context=None):
             'statusCode': 200,
             'body': "Files uploaded to S3 successfully."
         }
-    else:
-        return {
-            'statusCode': 500,
-            'body': "Failed to connect to the database."
-        }
+    return {
+        'statusCode': 500,
+        'body': "Failed to connect to the database."
+    }
