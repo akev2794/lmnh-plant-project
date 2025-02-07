@@ -4,14 +4,16 @@ It queries an AWS relational database to obtain the relevant LMNH plant data,
 then creates a dashboard based on the wireframe provided in the folder. 
 """
 from os import environ as ENV
+from datetime import timedelta
 import pyodbc
 import pandas as pd
 import streamlit as st
 import plotly.express as px
 from dotenv import load_dotenv
-from datetime import datetime, timedelta
 
 load_dotenv()
+
+#pylint: disable=c-extension-no-member
 
 @st.cache_resource
 def get_db_connection():
@@ -62,13 +64,14 @@ def get_plant_data(plant_id, time_range):
     recent_df = pd.read_sql(query_recent, connection, params=(plant_id,))
     most_recent_time = recent_df['most_recent_time'].iloc[0]
     if most_recent_time is None:
-        
         return pd.DataFrame()
 
     if time_range == "Last Hour":
         start_time = most_recent_time - timedelta(hours=1)
     elif time_range == "Last 24 Hours":
         start_time = most_recent_time - timedelta(days=1)
+    else:
+        start_time = most_recent_time
 
     query = """
     SELECT
@@ -83,7 +86,6 @@ def get_plant_data(plant_id, time_range):
     ORDER BY r.taken_at DESC
     """
     df = pd.read_sql(query, connection, params=(plant_id, start_time))
-    
 
     df['taken_at'] = pd.to_datetime(df['taken_at'])
 
@@ -103,13 +105,14 @@ def get_emergencies_within_period(plant_id, time_range):
     recent_df = pd.read_sql(query_recent, connection, params=(plant_id,))
     most_recent_incident_time = recent_df['most_recent_incident_time'].iloc[0]
     if most_recent_incident_time is None:
-        
         return 0
 
     if time_range == "Last Hour":
         start_time = most_recent_incident_time - timedelta(hours=1)
     elif time_range == "Last 24 Hours":
         start_time = most_recent_incident_time - timedelta(days=1)
+    else:
+        start_time = most_recent_incident_time
 
     query = """
     SELECT COUNT(*) as emergency_count
@@ -120,7 +123,6 @@ def get_emergencies_within_period(plant_id, time_range):
     cursor = connection.cursor()
     cursor.execute(query, (plant_id, start_time))
     result = cursor.fetchone()
-    
     return result[0]
 
 def display_plant_data():
@@ -143,7 +145,6 @@ def display_plant_data():
         st.write(f"**Plant Name**: {plant_name} ({plant_scientific_name})")
         st.write(f"**Region**: {region_name}, **Country**: {country_name}")
         st.write(f"**Botanist**: {botanist_first_name} {botanist_last_name}")
-    
     plant_data = get_plant_data(plant_id, time_range)
 
     emergency_count = get_emergencies_within_period(plant_id, time_range)
@@ -159,7 +160,8 @@ def display_plant_data():
 
     st.subheader(f"Soil Moisture over Time ({time_range})")
     if not plant_data.empty:
-        moisture_fig = px.line(plant_data, x='taken_at', y='soil_moisture', title="Soil Moisture Over Time")
+        moisture_fig = px.line(plant_data, x='taken_at',
+                               y='soil_moisture', title="Soil Moisture Over Time")
         moisture_fig.update_xaxes(type='date')
         st.plotly_chart(moisture_fig)
     else:
@@ -169,5 +171,4 @@ st.set_page_config(page_title="Plant Data Dashboard", layout="wide")
 st.title("Real-Time Plant Data Dashboard")
 
 if __name__ == "__main__":
-    """Runs the code"""
     display_plant_data()

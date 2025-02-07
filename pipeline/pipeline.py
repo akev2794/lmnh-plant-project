@@ -10,7 +10,6 @@ from os import environ as ENV
 import logging
 
 # Third-party imports
-import pandas as pd
 import pyodbc
 
 
@@ -24,7 +23,7 @@ from transform import process_plant_data, format_plant_data
 def create_env_connection():
     """Creates pyodbc connection based on environment variables."""
     try:
-        conn = pyodbc.connect(f"""
+        conn = pyodbc.connect(f""" 
         DRIVER={{ODBC Driver 18 for SQL Server}};
         SERVER={ENV["DB_HOST"]},{ENV["DB_PORT"]};
         DATABASE={ENV["DB_NAME"]};

@@ -49,6 +49,11 @@ resource "aws_ecs_task_definition" "dashboard_task" {
           containerPort = 1433
           hostPort      = 1433
           protocol      = "tcp"
+        },
+        {
+          containerPort = 8501
+          hostPort      = 8501
+          protocol      = "tcp"
         }
       ]
 
@@ -98,6 +103,13 @@ resource "aws_security_group" "ecs_security_group" {
   ingress {
     from_port   = 443
     to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8501
+    to_port     = 8501
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
