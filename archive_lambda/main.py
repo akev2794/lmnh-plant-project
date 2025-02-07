@@ -1,9 +1,9 @@
 """A module that takes the plant readings and incidents from the last 24 hours and archives them as parquet files in S3."""
-
 import pyodbc
 import boto3
 from os import environ as ENV, remove
 from datetime import datetime, timedelta
+import pandas as pd
 from dotenv import load_dotenv
 
 

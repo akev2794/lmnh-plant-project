@@ -3,3 +3,4 @@ boto3
 pyarrow
 pyodbc
 python-dotenv
+pandas 
