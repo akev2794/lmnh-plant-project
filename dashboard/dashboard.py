@@ -15,6 +15,7 @@ load_dotenv()
 
 @st.cache_resource
 def get_db_connection():
+    """Creates the connection to the database."""
     conn = pyodbc.connect(f"""
         DRIVER={{ODBC Driver 18 for SQL Server}};
         SERVER={ENV["DB_HOST"]},{ENV["DB_PORT"]};
@@ -123,6 +124,7 @@ def get_emergencies_within_period(plant_id, time_range):
     return result[0]
 
 def display_plant_data():
+    """Displays the information on the dashboard page for the non-technical stakeholders to see."""
     plant_id = st.selectbox("Select Plant ID", list(range(1, 51)))
 
     time_range = st.selectbox(
@@ -167,4 +169,5 @@ st.set_page_config(page_title="Plant Data Dashboard", layout="wide")
 st.title("Real-Time Plant Data Dashboard")
 
 if __name__ == "__main__":
+    """Runs the code"""
     display_plant_data()
