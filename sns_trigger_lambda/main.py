@@ -246,6 +246,13 @@ def lambda_handler(event=None, context=None):
     df_last_three = get_last_three_readings(conn)
     df_out_of_range = format_data(df_last_three, conn)
     json_data = format_json(df_out_of_range)
+    should_send_email = False
+    if len(json_data) < 1:
+        return {
+            'shouldSendEmail': False,
+            'statusCode': 200,
+            'body': ""
+    }        
     email_data = format_email_body_from_json(json_data)
     insert_incidents(json_data, conn)
     return {
@@ -254,7 +261,3 @@ def lambda_handler(event=None, context=None):
         'body': email_data
     }
 
-
-if __name__ == "__main__":
-    load_dotenv()
-    print(lambda_handler(None, None))
