@@ -39,3 +39,18 @@ variable "SCHEMA_NAME" {
 variable "ACCOUNT_NUMBER" {
     type = string
 }
+variable "AREN_EMAIL" {
+    type = string
+}
+variable "JOANA_EMAIL" {
+    type = string
+}
+variable "ROB_EMAIL" {
+    type = string
+}
+variable "ABDI_EMAIL" {
+    type = string
+}
+variable "AWS_VPC_ID" {
+    type = string
+}
