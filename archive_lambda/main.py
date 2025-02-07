@@ -125,7 +125,7 @@ def upload_to_s3(file_path, bucket_name, s3_key):
     print(f"File uploaded to S3: {bucket_name}/{s3_key}")
 
 
-def lambda_handler(event=None, context=None):
+def handler(event=None, context=None):
     """Lambda handler function."""
     load_dotenv()
     conn = make_connection()
