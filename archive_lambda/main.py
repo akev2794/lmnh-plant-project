@@ -1,3 +1,5 @@
+"""A module that takes the plant readings and incidents from the last 24 hours and archives them as parquet files in S3."""
+
 import pyodbc
 import boto3
 from os import environ as ENV, remove
@@ -7,7 +9,6 @@ from dotenv import load_dotenv
 
 def make_connection():
     """Creates a database connection using pyodbc."""
-    load_dotenv()
 
     try:
         conn = pyodbc.connect(f"""
@@ -38,12 +39,11 @@ def get_data_for_last_24_hours(connection: pyodbc.Connection):
     WHERE taken_at >= ?
     """
 
-    time_24_hours_ago = get_time()
-
-    cursor = connection.cursor()
-    cursor.execute(query, time_24_hours_ago)
-    rows = cursor.fetchall()
-    cursor.close()
+    timeframe = get_time()
+    with make_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(query, timeframe)
+            rows = cursor.fetchall()
 
     data = []
     for row in rows:
@@ -84,11 +84,11 @@ def get_historical_incidents():
     """
 
     timeframe = get_time()
-    conn = make_connection()
-    cursor = conn.cursor()
-    cursor.execute(query, timeframe)
-    rows = cursor.fetchall()
-    cursor.close()
+
+    with make_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(query, timeframe)
+            rows = cursor.fetchall()
 
     data = []
     for row in rows:
@@ -153,3 +153,8 @@ def lambda_handler(event=None, context=None):
             'statusCode': 500,
             'body': "Failed to connect to the database."
         }
+
+
+if __name__ == "__main__":
+    load_dotenv
+    print(lambda_handler(None, None))
