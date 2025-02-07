@@ -187,6 +187,7 @@ def insert_incidents(json_data, connection: pyodbc.Connection):
         plant_id = record['plant_id']
         out_of_range_type = record['out_of_range_type']
         taken_at = record['taken_at']
+        taken_at = str(taken_at)
         if '.' in taken_at:
             taken_at = taken_at.split('.')
             taken_at = datetime.strptime(taken_at[0], '%Y-%m-%d %H:%M:%S')
@@ -260,3 +261,6 @@ def handler(event=None, context=None):
         'statusCode': 200,
         'body': email_data
     }
+
+
+if __name__ == "__main__":
