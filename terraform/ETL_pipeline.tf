@@ -105,6 +105,48 @@ resource "aws_iam_role_policy_attachment" "state_role_lambda" {
   policy_arn = aws_iam_policy.state_machine_lambda_policy.arn
 }
 
+data "aws_ses_email_identity" "aren_email" {
+  email = var.AREN_EMAIL 
+}
+
+data "aws_ses_email_identity" "joana_email" {
+  email = var.JOANA_EMAIL 
+}
+
+data "aws_ses_email_identity" "rob_email" {
+  email = var.ROB_EMAIL 
+}
+
+data "aws_ses_email_identity" "abdi_email" {
+  email = var.ABDI_EMAIL 
+}
+
+resource "aws_iam_policy" "state_machine_ses_policy" {
+  name        = "c15-aren-state-machine-ses-policy"
+  description = "Allows Step Function to send emails using SES"
+  policy      = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow",
+        Action   = [
+          "ses:SendEmail",
+          "ses:SendRawEmail"
+        ],
+        Resource = [data.aws_ses_email_identity.aren_email.arn, 
+        data.aws_ses_email_identity.joana_email.arn, 
+        data.aws_ses_email_identity.rob_email.arn,
+        data.aws_ses_email_identity.abdi_email.arn]
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "state_role_ses" {
+  role       = aws_iam_role.state_role.name
+  policy_arn = aws_iam_policy.state_machine_ses_policy.arn
+}
+
 # CloudWatch Log Group for Step Function
 resource "aws_cloudwatch_log_group" "incitatus_state_machine_logs" {
   name = "/aws/vendedlogs/states/incitatus-state-machine-logs"
@@ -115,31 +157,106 @@ resource "aws_iam_role_policy_attachment" "state_machine_cw_logs" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
 
-# Step Function - Only Calls Pipeline Lambda for now
+# Step Function - Calls both lambdas and SES now
 resource "aws_sfn_state_machine" "incitatus_state_machine" {
   name     = "c15-incitatus-state-machine"
   role_arn = aws_iam_role.state_role.arn
+  publish  = true
   type     = "EXPRESS"
 
   definition = jsonencode({
-    Comment = "Step Function to invoke Lambda",
-    StartAt = "Invoke Lambda",
-    States = {
-      "Invoke Lambda" = {
-        Type       = "Task",
-        Resource   = "arn:aws:states:::lambda:invoke",
-        Parameters = {
-          FunctionName = aws_lambda_function.c15-incitatus-etl-pipeline-lambda-function.arn
+    "Comment": "Step Function to invoke two Lambdas and SES",
+    "StartAt": "Invoke ETL Lambda",
+    "States": {
+      "Invoke ETL Lambda": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::lambda:invoke",
+        "Parameters": {
+          "FunctionName": aws_lambda_function.c15-incitatus-etl-pipeline-lambda-function.arn,
+          "Payload.$": "$"
         },
-        End = true
+        "Retry": [
+          {
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 1,
+            "MaxAttempts": 3,
+            "BackoffRate": 2,
+            "JitterStrategy": "FULL"
+          }
+        ],
+        "Next": "Invoke Plant Reading Lambda"
+      },
+      "Invoke Plant Reading Lambda": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::lambda:invoke",
+        "Parameters": {
+          "FunctionName": aws_lambda_function.c15-incitatus-plant-reading-lambda-function.arn,
+          "Payload.$": "$"
+        },
+        "Retry": [
+          {
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 1,
+            "MaxAttempts": 3,
+            "BackoffRate": 2,
+            "JitterStrategy": "FULL"
+          }
+        ],
+        "ResultPath": "$.email", 
+        "Next": "CheckPayload"
+    },
+    "CheckPayload": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.email.shouldSendEmail",
+          "BooleanEquals": true,
+          "Next": "SendEmail"
+        }
+      ],
+      "Default": "End"
+    },
+        "SendEmail": {
+          "Type": "Task",
+          "Resource": "arn:aws:states:::aws-sdk:sesv2:sendEmail",
+          "Parameters": {
+            "Content": {
+              "Simple": {
+                "Body": {
+                  "Html": {
+                    "Data.$": "$.email.Payload.body"
+                  }
+                },
+                "Subject": {
+                  "Data": "ALERT"
+                }
+              }
+            },
+            "Destination": {
+              "ToAddresses": ["${var.AREN_EMAIL}", "${var.JOANA_EMAIL}", "${var.ROB_EMAIL}", "${var.ABDI_EMAIL}"]
+            },
+            "FeedbackForwardingEmailAddress": "${var.AREN_EMAIL}",
+            "FromEmailAddress": "${var.AREN_EMAIL}"
+          },
+          "End": true
+        }
       }
     }
-  })
-
+  )
   logging_configuration {
-    log_destination        = "${aws_cloudwatch_log_group.incitatus_state_machine_logs.arn}:*"
+    log_destination       = "${aws_cloudwatch_log_group.incitatus_state_machine_logs.arn}:*"
     include_execution_data = true
-    level                  = "ALL"
+    level                 = "ALL"
   }
 }
 
