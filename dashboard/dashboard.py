@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 
 load_dotenv()
 
+@st.cache_resource
 def get_db_connection():
     conn = pyodbc.connect(f"""
         DRIVER={{ODBC Driver 18 for SQL Server}};
@@ -24,6 +25,7 @@ def get_db_connection():
     """)
     return conn
 
+@st.cache_data(ttl=600)
 def get_plant_details(plant_id):
     """Fetches the plant details (name, region, botanist) for a given plant_id."""
     connection = get_db_connection()
@@ -44,9 +46,9 @@ def get_plant_details(plant_id):
         p.plant_id = ?
     """
     df = pd.read_sql(query, connection, params=(plant_id,))
-    connection.close()
     return df
 
+@st.cache_data(ttl=600)
 def get_plant_data(plant_id, time_range):
     """Fetches temperature and soil moisture for a given plant and time range."""
     connection = get_db_connection()
@@ -59,17 +61,13 @@ def get_plant_data(plant_id, time_range):
     recent_df = pd.read_sql(query_recent, connection, params=(plant_id,))
     most_recent_time = recent_df['most_recent_time'].iloc[0]
     if most_recent_time is None:
-        connection.close()
+        
         return pd.DataFrame()
 
     if time_range == "Last Hour":
         start_time = most_recent_time - timedelta(hours=1)
     elif time_range == "Last 24 Hours":
         start_time = most_recent_time - timedelta(days=1)
-    elif time_range == "Last Week":
-        start_time = most_recent_time - timedelta(weeks=1)
-    elif time_range == "Last 30 Days":
-        start_time = most_recent_time - timedelta(days=30)
 
     query = """
     SELECT
@@ -84,13 +82,14 @@ def get_plant_data(plant_id, time_range):
     ORDER BY r.taken_at DESC
     """
     df = pd.read_sql(query, connection, params=(plant_id, start_time))
-    connection.close()
+    
 
     df['taken_at'] = pd.to_datetime(df['taken_at'])
 
     df = df.set_index('taken_at').rolling('3T').mean().reset_index()
     return df
 
+@st.cache_data(ttl=600)
 def get_emergencies_within_period(plant_id, time_range):
     """Fetches the number of emergencies for a given plant within a specified time range."""
     connection = get_db_connection()
@@ -103,17 +102,13 @@ def get_emergencies_within_period(plant_id, time_range):
     recent_df = pd.read_sql(query_recent, connection, params=(plant_id,))
     most_recent_incident_time = recent_df['most_recent_incident_time'].iloc[0]
     if most_recent_incident_time is None:
-        connection.close()
+        
         return 0
 
     if time_range == "Last Hour":
         start_time = most_recent_incident_time - timedelta(hours=1)
     elif time_range == "Last 24 Hours":
         start_time = most_recent_incident_time - timedelta(days=1)
-    elif time_range == "Last Week":
-        start_time = most_recent_incident_time - timedelta(weeks=1)
-    elif time_range == "Last 30 Days":
-        start_time = most_recent_incident_time - timedelta(days=30)
 
     query = """
     SELECT COUNT(*) as emergency_count
@@ -124,7 +119,7 @@ def get_emergencies_within_period(plant_id, time_range):
     cursor = connection.cursor()
     cursor.execute(query, (plant_id, start_time))
     result = cursor.fetchone()
-    connection.close()
+    
     return result[0]
 
 def display_plant_data():
@@ -132,7 +127,7 @@ def display_plant_data():
 
     time_range = st.selectbox(
         "Select Time Period",
-        ["Last Hour", "Last 24 Hours", "Last Week", "Last 30 Days"]
+        ["Last Hour", "Last 24 Hours"]
     )
 
     plant_details = get_plant_details(plant_id)
