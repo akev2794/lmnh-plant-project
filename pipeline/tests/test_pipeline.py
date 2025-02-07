@@ -1,4 +1,5 @@
-# Pylint:skip-file
+# pylint: skip-file
+
 """Testing for pipeline.py"""
 
 # Native imports
@@ -13,22 +14,19 @@ import pytest
 from pipeline import load_to_recording
 
 
-
-
-
-
 ### Load to recording
-@patch('pipeline.pd.DataFrame.to_sql')
-@pytest.mark.parametrize('data', [('recordin'), (''), ('plant'), (1)])
-def test_load_invalid_df(mock_to_sql, data):
-    with pytest.raises(ValueError, match="Invalid table name."):
-        load_to_recording('recording', pd.DataFrame(data), 'engine')
+@patch('pyodbc.Connection')
+def test_load_to_recording_invalid_df(mock_conn):
+    data = [1]
+    mock_conn = MagicMock()
+    mock_conn.return_value = mock_conn 
+    with pytest.raises(ValueError):
+        load_to_recording(data, mock_conn)
 
 
-@patch('pipeline.pd.DataFrame.to_sql')
-@pytest.mark.parametrize('table', [('recording'), ('incident')])
-def test_load_valid_df(mock_to_sql, table):
-    VALID_DATA_A = [{"plant_id": 3, "soil_moisture": 11, "temperature": 10, "taken_at":datetime.now()}]
-    VALID_DF = pd.DataFrame(VALID_DATA_A)
-    assert load_to_recording(table, VALID_DF, 'engine') == None
+@patch('pyodbc.Connection')
+def test_load_to_recording_valid_df(mock_conn):
+    mock_conn = MagicMock()
+    valid_data= [(1, 2, 3 ,4, 5)]
+    assert load_to_recording(valid_data, conn) == None
 

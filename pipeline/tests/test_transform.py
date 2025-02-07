@@ -1,4 +1,5 @@
-# Pylint:skip-file
+# pylint: skip-file
+
 """Testing for transform.py"""
 
 # Native imports

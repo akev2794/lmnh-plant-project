@@ -36,11 +36,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+
       - name: Run pipeline tests
         run: |
           cd pipeline
           pip install -r requirements.txt
           pytest . --maxfail=1
+
 
       - name: Run dashboard tests
         run: |
@@ -48,11 +50,13 @@ jobs:
           pip install -r requirements.txt
           pytest . --maxfail=1
         
+
       - name: Run archive lambda tests
         run: |
           cd archive_lambda
           pip install -r requirements.txt
           pytest . --maxfail=1
+      
       
       - name: Run sns trigger lambda tests
         run: |
