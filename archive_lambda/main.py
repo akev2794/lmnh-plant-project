@@ -40,10 +40,10 @@ def get_data_for_last_24_hours(connection: pyodbc.Connection):
     """
 
     timeframe = get_time()
-    with make_connection() as conn:
-        with conn.cursor() as cursor:
-            cursor.execute(query, timeframe)
-            rows = cursor.fetchall()
+
+    with connection.cursor() as cursor:
+        cursor.execute(query, timeframe)
+        rows = cursor.fetchall()
 
     data = []
     for row in rows:
@@ -69,7 +69,7 @@ def generate_hourly_averages(df):
     return df_hourly
 
 
-def get_historical_incidents():
+def get_historical_incidents(connection: pyodbc.Connection):
     """Fetch incidents from the last 24 hours, join with plant and botanist tables"""
     query = """
     SELECT 
@@ -85,10 +85,9 @@ def get_historical_incidents():
 
     timeframe = get_time()
 
-    with make_connection() as conn:
-        with conn.cursor() as cursor:
-            cursor.execute(query, timeframe)
-            rows = cursor.fetchall()
+    with connection.cursor() as cursor:
+        cursor.execute(query, timeframe)
+        rows = cursor.fetchall()
 
     data = []
     for row in rows:
@@ -131,12 +130,12 @@ def lambda_handler(event=None, context=None):
     conn = make_connection()
 
     if conn:
-        incident_df = get_historical_incidents()
+        incident_df = get_historical_incidents(conn)
         df = get_data_for_last_24_hours(conn)
         df_hourly = generate_hourly_averages(df)
         recording_file_path = save_to_parquet(df_hourly, "plant_recordings")
         incident_file_path = save_to_parquet(incident_df, "plant_incidents")
-        bucket_name = ""
+        bucket_name = ENV["S3_BUCKET"]
         s3_recording_key = get_filename(df_hourly, "plant_recordings")
         s3_incident_key = get_filename(incident_df, "plant_incidents")
         upload_to_s3(recording_file_path, bucket_name, s3_recording_key)
@@ -153,8 +152,6 @@ def lambda_handler(event=None, context=None):
             'statusCode': 500,
             'body': "Failed to connect to the database."
         }
+    conn.close()
 
 
-if __name__ == "__main__":
-    load_dotenv
-    print(lambda_handler(None, None))
