@@ -94,7 +94,8 @@ resource "aws_iam_policy" "state_machine_lambda_policy" {
       {
         Effect   = "Allow",
         Action   = "lambda:InvokeFunction",
-        Resource = aws_lambda_function.c15-incitatus-etl-pipeline-lambda-function.arn
+        Resource = [aws_lambda_function.c15-incitatus-etl-pipeline-lambda-function.arn,
+        aws_lambda_function.c15-incitatus-plant-reading-lambda-function.arn]
       }
     ]
   })
@@ -214,45 +215,48 @@ resource "aws_sfn_state_machine" "incitatus_state_machine" {
         ],
         "ResultPath": "$.email", 
         "Next": "CheckPayload"
-    },
-    "CheckPayload": {
-      "Type": "Choice",
-      "Choices": [
-        {
-          "Variable": "$.email.shouldSendEmail",
-          "BooleanEquals": true,
-          "Next": "SendEmail"
-        }
-      ],
-      "Default": "End"
-    },
-        "SendEmail": {
-          "Type": "Task",
-          "Resource": "arn:aws:states:::aws-sdk:sesv2:sendEmail",
-          "Parameters": {
-            "Content": {
-              "Simple": {
-                "Body": {
-                  "Html": {
-                    "Data.$": "$.email.Payload.body"
-                  }
-                },
-                "Subject": {
-                  "Data": "ALERT"
+      },
+      "CheckPayload": {
+        "Type": "Choice",
+        "Choices": [
+          {
+            "Variable": "$.email.shouldSendEmail",
+            "BooleanEquals": true,
+            "Next": "SendEmail"
+          }
+        ],
+        "Default": "EndState"
+      },
+      "SendEmail": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::aws-sdk:sesv2:sendEmail",
+        "Parameters": {
+          "Content": {
+            "Simple": {
+              "Body": {
+                "Html": {
+                  "Data.$": "$.email.Payload.body"
                 }
+              },
+              "Subject": {
+                "Data": "ALERT"
               }
-            },
-            "Destination": {
-              "ToAddresses": ["${var.AREN_EMAIL}", "${var.JOANA_EMAIL}", "${var.ROB_EMAIL}", "${var.ABDI_EMAIL}"]
-            },
-            "FeedbackForwardingEmailAddress": "${var.AREN_EMAIL}",
-            "FromEmailAddress": "${var.AREN_EMAIL}"
+            }
           },
-          "End": true
-        }
+          "Destination": {
+            "ToAddresses": ["${var.AREN_EMAIL}", "${var.JOANA_EMAIL}", "${var.ROB_EMAIL}", "${var.ABDI_EMAIL}"]
+          },
+          "FeedbackForwardingEmailAddress": "${var.AREN_EMAIL}",
+          "FromEmailAddress": "${var.AREN_EMAIL}"
+        },
+        "End": true
+      },
+      "EndState": {
+        "Type": "Succeed"
       }
     }
-  )
+  })
+
   logging_configuration {
     log_destination       = "${aws_cloudwatch_log_group.incitatus_state_machine_logs.arn}:*"
     include_execution_data = true
