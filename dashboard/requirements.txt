@@ -1,4 +1,6 @@
 streamlit 
-pyodbc 
+pymysql 
 pandas 
 plotly
+pyodbc
+python-dotenv
