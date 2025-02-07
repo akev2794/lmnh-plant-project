@@ -173,7 +173,7 @@ def format_data(df, connection):
 def format_json(df):
     """Takes a DataFrame and converts it into JSON"""
     df_json = df.to_dict(orient='records')
-    return json.dumps(df_json, default=str)
+    return df_json
 
 
 def insert_incidents(json_data, connection: pyodbc.Connection):
@@ -205,7 +205,6 @@ def insert_incidents(json_data, connection: pyodbc.Connection):
 def format_email_body_from_json(json_data):
     """Format the email body with appropriate messages."""
     email_body = ""
-
     for record in json_data:
         plant_id = record['plant_id']
         out_of_range_type = record['out_of_range_type']
