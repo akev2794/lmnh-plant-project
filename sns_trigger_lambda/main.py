@@ -261,6 +261,3 @@ def handler(event=None, context=None):
         'statusCode': 200,
         'body': email_data
     }
-
-
-if __name__ == "__main__":
