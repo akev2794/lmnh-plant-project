@@ -39,7 +39,22 @@ jobs:
       - name: Install Pylint
         run: pip install pylint
 
-      - name: Run Pylint
+      - name: Archive lambda pylint
         run: |
-          # Run Pylint with the --fail-under flag set to 9 to fail if the score is below 9
+          cd archive_lambda
+          pylint --fail-under 9 $(git ls-files '*.py')
+
+      - name: Dashboard pylint
+        run: |
+          cd dashboard
+          pylint --fail-under 9 $(git ls-files '*.py')
+
+      - name: Pipeline pylint
+        run: |
+          cd pipeline
+          pylint --fail-under 9 $(git ls-files '*.py')
+
+      - name: SNS trigger lambda pylint
+        run: |
+          cd sns_trigger_lambda
           pylint --fail-under 9 $(git ls-files '*.py')

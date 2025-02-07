@@ -3,3 +3,7 @@ pytest
 aiohttp
 pandas
 pytest-asyncio
+pyodbc
+streamlit
+plotly.express
+dotenv
