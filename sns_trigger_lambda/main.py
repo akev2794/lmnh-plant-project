@@ -1,9 +1,11 @@
-from os import environ as ENV
+"""A module that checks if all the last three readings of moisture or temperature for a plant are out of range.
+It loads these incidents into the incident table and also sends an email about it """
 from datetime import datetime, timedelta
-import pandas as pd
-from dotenv import load_dotenv
-import pyodbc
 import json
+from os import environ as ENV
+import pandas as pd
+import pyodbc
+from dotenv import load_dotenv
 
 
 def make_connection():
@@ -200,6 +202,37 @@ def insert_incidents(json_data, connection: pyodbc.Connection):
     cursor.close()
 
 
+def format_email_body_from_json(json_data):
+    """Format the email body with appropriate messages."""
+    email_body = ""
+
+    for record in json_data:
+        plant_id = record['plant_id']
+        out_of_range_type = record['out_of_range_type']
+        temperature = record['temperature_reading']
+        soil_moisture = record['soil_moisture_reading']
+
+        if out_of_range_type == 'both':
+            email_body += f"""
+    The plant with id {plant_id} has had both temperature and moisture readings out of range for the last three minutes. The latest readings are:
+    temperature: {temperature}
+    moisture: {soil_moisture}
+            """
+        elif out_of_range_type == 'temperature':
+            email_body += f"""
+    The plant with id {plant_id} has had the temperature reading out of range for the last three minutes. The latest reading is:
+    temperature: {temperature}
+            """
+        elif out_of_range_type == 'moisture':
+            email_body += f"""
+    The plant with id {plant_id} has had the moisture reading out of range for the last three minutes. The latest reading is:
+    moisture: {soil_moisture}
+            """
+        email_body += "\n\n"
+
+    return email_body
+
+
 def lambda_handler(event=None, context=None):
     """AWS Lambda handler function."""
     conn = make_connection()
@@ -213,11 +246,12 @@ def lambda_handler(event=None, context=None):
     df_last_three = get_last_three_readings(conn)
     df_out_of_range = format_data(df_last_three, conn)
     json_data = format_json(df_out_of_range)
+    email_data = format_email_body_from_json(json_data)
     insert_incidents(json_data, conn)
     return {
         'shouldSendEmail': True,
         'statusCode': 200,
-        'body': json_data
+        'body': email_data
     }
 
 
