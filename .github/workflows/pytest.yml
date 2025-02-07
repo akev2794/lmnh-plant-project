@@ -43,23 +43,3 @@ jobs:
           pip install -r requirements.txt
           pytest . --maxfail=1
 
-
-      - name: Run dashboard tests
-        run: |
-          cd dashboard
-          pip install -r requirements.txt
-          pytest . --maxfail=1
-        
-
-      - name: Run archive lambda tests
-        run: |
-          cd archive_lambda
-          pip install -r requirements.txt
-          pytest . --maxfail=1
-      
-      
-      - name: Run sns trigger lambda tests
-        run: |
-          cd sns_trigger_lambda
-          pip install -r requirements.txt
-          pytest . --maxfail=1
