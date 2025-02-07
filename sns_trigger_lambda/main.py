@@ -180,7 +180,7 @@ def insert_incidents(json_data, connection: pyodbc.Connection):
     """Insert the incidents into the incident table"""
     cursor = connection.cursor()
 
-    records = json.loads(json_data)
+    records = json_data
 
     for record in records:
 
