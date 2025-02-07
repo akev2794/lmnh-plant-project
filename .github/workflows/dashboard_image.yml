@@ -1,4 +1,4 @@
-name: Push the dashboard image to AWS ECR Repo
+name: Dashboard image to ECR
 
 on:
   pull_request:

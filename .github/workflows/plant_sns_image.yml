@@ -1,4 +1,4 @@
-name: Push the plant sns image to AWS ECR Repo
+name: Alert image to ECR
 
 on:
   pull_request:
