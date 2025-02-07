@@ -34,12 +34,31 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+   
 
       - name: Install Pylint
         run: pip install pylint
 
-      - name: Run Pylint
+      - name: Archive lambda pylint
         run: |
-          # Run Pylint with the --fail-under flag set to 9 to fail if the score is below 9
+          cd archive_lambda
+          pip install -r requirements.txt
+          pylint --fail-under 9 $(git ls-files '*.py')
+
+      - name: Dashboard pylint
+        run: |
+          cd dashboard
+          pip install -r requirements.txt
+          pylint --fail-under 9 $(git ls-files '*.py')
+
+      - name: Pipeline pylint
+        run: |
+          cd pipeline
+          pip install -r requirements.txt
+          pylint --fail-under 9 $(git ls-files '*.py')
+
+      - name: SNS trigger lambda pylint
+        run: |
+          cd sns_trigger_lambda
+          pip install -r requirements.txt
           pylint --fail-under 9 $(git ls-files '*.py')

@@ -1,34 +1,28 @@
-# Pylint:skip-file
+# pylint: skip-file
+
 """Testing for pipeline.py"""
 
 # Native imports
-from datetime import datetime
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
+from os import environ as ENV
 
 # Third-party imports
-import pandas as pd
 import pytest
+import pyodbc
 
 # Local modules 
-from pipeline import load_to_recording
+from pipeline import create_env_connection
 
-
-
-
-
-
-### Load to recording
-@patch('pipeline.pd.DataFrame.to_sql')
-@pytest.mark.parametrize('data', [('recordin'), (''), ('plant'), (1)])
-def test_load_invalid_df(mock_to_sql, data):
-    with pytest.raises(ValueError, match="Invalid table name."):
-        load_to_recording('recording', pd.DataFrame(data), 'engine')
-
-
-@patch('pipeline.pd.DataFrame.to_sql')
-@pytest.mark.parametrize('table', [('recording'), ('incident')])
-def test_load_valid_df(mock_to_sql, table):
-    VALID_DATA_A = [{"plant_id": 3, "soil_moisture": 11, "temperature": 10, "taken_at":datetime.now()}]
-    VALID_DF = pd.DataFrame(VALID_DATA_A)
-    assert load_to_recording(table, VALID_DF, 'engine') == None
+@patch.dict(ENV, {
+    'DB_HOST': 'localhost',
+    'DB_PORT': '1433',
+    'DB_NAME': 'test_db',
+    'DB_USER': 'user',
+    'DB_PASSWORD': 'password'
+})
+@patch('pyodbc.connect')
+def test_create_env_connection_invalid(mock_connect):
+    mock_connect.side_effect = pyodbc.Error("Error connecting to database:")
+    with pytest.raises(pyodbc.Error, match="Error connecting to database:"):
+        create_env_connection()
 
