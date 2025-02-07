@@ -1,8 +1,14 @@
-"""A module that checks if all the last three readings of moisture or temperature for a plant are out of range.
-It loads these incidents into the incident table and also sends an email about it """
+"""A module that checks if all the last three readings of
+moisture or temperature for a plant are out of range.
+It loads these incidents into the incident table and 
+sends an email about it """
+
+# Native imports
 from datetime import datetime, timedelta
 import json
 from os import environ as ENV
+
+# Third-party imports
 import pandas as pd
 import pyodbc
 from dotenv import load_dotenv
@@ -103,16 +109,16 @@ def get_out_of_range_type(row):
     """Establish whether the plant reading has the temperature, moisture or both out of range"""
     if row['out_of_temp_range'] and row['out_of_moisture_range']:
         return 'both'
-    elif row['out_of_temp_range']:
+    if row['out_of_temp_range']:
         return 'temperature'
-    elif row['out_of_moisture_range']:
+    if row['out_of_moisture_range']:
         return 'moisture'
-    else:
-        return None
+    return None
 
 
 def check_existing_incident(plant_id, incident_type, connection: pyodbc.Connection):
-    """Check if an incident for the plant and incident type has been recorded in the last 15 minutes."""
+    """Check if an incident for the plant and incident 
+    type has been recorded in the last 15 minutes."""
     cursor = connection.cursor()
     query = """
     SELECT 1
@@ -129,7 +135,8 @@ def check_existing_incident(plant_id, incident_type, connection: pyodbc.Connecti
 
 
 def format_data(df, connection):
-    """Takes in plant readings and the min and max ranges and makes the relevant columns in a DataFrame"""
+    """Takes in plant readings and the min and max ranges
+    and makes the relevant columns in a DataFrame"""
     min_max_values = get_ranges(connection)
     min_temp, max_temp, min_moisture, max_moisture = min_max_values
 
@@ -148,16 +155,19 @@ def format_data(df, connection):
     df_last_reading = df_out_of_range.groupby('plant_id').last().reset_index()
 
     df_last_reading['temperature_reading'] = df_last_reading.apply(
-        lambda row: row['temperature'] if row['out_of_range_type'] == 'temperature' or row['out_of_range_type'] == 'both' else None,
+        lambda row: row['temperature'] if row['out_of_range_type'] == 'temperature'
+        or row['out_of_range_type'] == 'both' else None,
         axis=1
     )
     df_last_reading['soil_moisture_reading'] = df_last_reading.apply(
-        lambda row: row['soil_moisture'] if row['out_of_range_type'] == 'moisture' or row['out_of_range_type'] == 'both' else None,
+        lambda row: row['soil_moisture'] if row['out_of_range_type'] == 'moisture'
+        or row['out_of_range_type'] == 'both' else None,
         axis=1
     )
 
     df_last_reading_details = df_last_reading[[
-        'plant_id', 'out_of_range_type', 'taken_at', 'temperature_reading', 'soil_moisture_reading']]
+        'plant_id', 'out_of_range_type', 'taken_at',
+        'temperature_reading', 'soil_moisture_reading']]
     records_to_insert = []
 
     for _, record in df_last_reading_details.iterrows():
@@ -214,26 +224,30 @@ def format_email_body_from_json(json_data):
 
         if out_of_range_type == 'both':
             email_body += f"""
-    The plant with id {plant_id} has had both temperature and moisture readings out of range for the last three minutes. The latest readings are:
-    temperature: {temperature}
-    moisture: {soil_moisture}
-            """
+                The plant with id {plant_id} has had both temperature and
+                moisture readings out of range for the last three minutes. 
+                The latest readings are:
+                temperature: {temperature}
+                moisture: {soil_moisture}
+                """
         elif out_of_range_type == 'temperature':
             email_body += f"""
-    The plant with id {plant_id} has had the temperature reading out of range for the last three minutes. The latest reading is:
-    temperature: {temperature}
-            """
+                The plant with id {plant_id} has had the temperature reading out
+                of range for the last three minutes. The latest reading is:
+                temperature: {temperature}
+                """
         elif out_of_range_type == 'moisture':
             email_body += f"""
-    The plant with id {plant_id} has had the moisture reading out of range for the last three minutes. The latest reading is:
-    moisture: {soil_moisture}
-            """
+                The plant with id {plant_id} has had the moisture reading
+                out of range for the last three minutes. The latest reading is:
+                moisture: {soil_moisture}
+                        """
         email_body += "\n\n"
 
     return email_body
 
 
-def handler(event=None, context=None):
+def handler(event=None, context=None): # pylint: disable=unused-argument
     """AWS Lambda handler function."""
     conn = make_connection()
 
@@ -246,7 +260,6 @@ def handler(event=None, context=None):
     df_last_three = get_last_three_readings(conn)
     df_out_of_range = format_data(df_last_three, conn)
     json_data = format_json(df_out_of_range)
-    should_send_email = False
     if len(json_data) < 1:
         return {
             'shouldSendEmail': False,
