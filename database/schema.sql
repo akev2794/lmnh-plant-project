@@ -79,7 +79,7 @@ CREATE TABLE beta.incident(
     incident_id SMALLINT IDENTITY(1,1) NOT NULL,
     plant_id SMALLINT NOT NULL,
     incident_type VARCHAR(11),
-    incident_at TIMESTAMP NOT NULL
+    incident_at DATETIME NOT NULL
 );
 ALTER TABLE
     beta.incident ADD CONSTRAINT incident_incident_id_primary PRIMARY KEY(incident_id);
