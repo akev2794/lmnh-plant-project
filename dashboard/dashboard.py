@@ -166,4 +166,5 @@ def display_plant_data():
 st.set_page_config(page_title="Plant Data Dashboard", layout="wide")
 st.title("Real-Time Plant Data Dashboard")
 
-display_plant_data()
+if __name__ == "__main__":
+    display_plant_data()
