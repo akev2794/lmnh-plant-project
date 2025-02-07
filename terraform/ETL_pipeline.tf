@@ -213,14 +213,14 @@ resource "aws_sfn_state_machine" "incitatus_state_machine" {
             "JitterStrategy": "FULL"
           }
         ],
-        "ResultPath": "$.email", 
+        "ResultPath": "$", 
         "Next": "CheckPayload"
       },
       "CheckPayload": {
         "Type": "Choice",
         "Choices": [
           {
-            "Variable": "$.email.shouldSendEmail",
+            "Variable": "$.Payload.shouldSendEmail",
             "BooleanEquals": true,
             "Next": "SendEmail"
           }
@@ -235,7 +235,7 @@ resource "aws_sfn_state_machine" "incitatus_state_machine" {
             "Simple": {
               "Body": {
                 "Html": {
-                  "Data.$": "$.email.Payload.body"
+                  "Data.$": "$.Payload.body"
                 }
               },
               "Subject": {
