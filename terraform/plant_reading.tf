@@ -16,7 +16,7 @@ resource "aws_lambda_function" "c15-incitatus-plant-reading-lambda-function" {
   package_type  = "Image"
   image_uri     = data.aws_ecr_image.latest_plant_reading_image.image_uri
   memory_size   = 128
-  timeout       = 35
+  timeout       = 120
   environment {
     variables = {
       DB_HOST      = var.DB_HOST
